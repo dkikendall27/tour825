@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>825 NE 75th St, Roosevelt, Seattle | Tour825.com</title>
-<meta name="description" content="A 1909 craftsman in Roosevelt, Seattle — 4 bed, 2 bath, 2,720 sq ft, steps to Green Lake and the Roosevelt light rail. $1,315,000.">
+<meta name="description" content="A 1909 craftsman in Roosevelt, Seattle. 4 bed, 2 bath, 2,720 sq ft, steps to Green Lake and the Roosevelt light rail. $1,315,000.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,14 +40,14 @@ a { color: inherit; }
   border-bottom: 1px solid rgba(255,255,255,0.08); transition: background .3s ease; }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
 .nav .brand { color: var(--light); font-weight: 800; letter-spacing: 0.04em; font-size: 15px; }
-.nav ul { list-style: none; display: flex; gap: 26px; }
+.nav ul { list-style: none; display: flex; gap: 22px; }
 .nav a { color: var(--light); text-decoration: none; font-size: 12px; letter-spacing: 0.07em; font-weight: 600;
   opacity: 0.88; transition: opacity .2s ease; }
 .nav a:hover { opacity: 1; }
 
 /* BUTTONS */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-weight: 700;
-  font-size: 14px; text-decoration: none; border: none; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease; }
+  font-size: 14px; text-decoration: none; border: none; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease; white-space: nowrap; }
 .btn:hover { transform: translateY(-2px); }
 .btn-accent { background: var(--accent); color: #fff; box-shadow: var(--shadow-md); }
 .btn-accent:hover { box-shadow: var(--shadow-lg); }
@@ -64,17 +64,17 @@ a { color: inherit; }
   background: linear-gradient(to top, var(--bg-dark) 6%, rgba(31,61,43,0.35) 45%, rgba(31,61,43,0.05) 75%); }
 .hero-content { position: absolute; left: 0; right: 0; bottom: 48px; }
 .eyebrow { color: var(--gold); font-weight: 700; font-size: 12.5px; letter-spacing: 0.14em; margin-bottom: 16px; text-transform: uppercase; }
-.hero h1 { font-size: 50px; line-height: 1.06; margin-bottom: 20px; max-width: 780px; }
+.hero h1 { font-size: 48px; line-height: 1.08; margin-bottom: 20px; max-width: 780px; }
 .hero p.sub { font-size: 18px; max-width: 620px; opacity: 0.94; margin-bottom: 30px; font-weight: 400; }
 .scroll-cue { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); color: var(--light);
   opacity: 0.7; font-size: 11px; letter-spacing: 0.15em; text-align: center; animation: bob 2.2s ease-in-out infinite; }
 @keyframes bob { 0%,100% { transform: translate(-50%,0); } 50% { transform: translate(-50%,7px); } }
 
 /* STAT BAR */
-.stat-bar { background: var(--light); padding: 38px 0; }
-.stat-bar .wrap { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
-.stat-bar .num { font-size: 34px; font-weight: 800; color: var(--bg-dark); letter-spacing: -0.02em; }
-.stat-bar .label { font-size: 11.5px; letter-spacing: 0.12em; color: var(--accent); font-weight: 700; margin-top: 5px; }
+.stat-bar { background: var(--light); padding: 34px 0; }
+.stat-bar .wrap { display: grid; grid-template-columns: repeat(6, 1fr); text-align: center; gap: 10px 6px; }
+.stat-bar .num { font-size: 30px; font-weight: 800; color: var(--bg-dark); letter-spacing: -0.02em; white-space: nowrap; }
+.stat-bar .label { font-size: 10.5px; letter-spacing: 0.1em; color: var(--accent); font-weight: 700; margin-top: 5px; }
 
 /* SECTION */
 .section { padding: 84px 0; }
@@ -91,14 +91,33 @@ a { color: inherit; }
 .story-block h4 { font-size: 17px; color: var(--bg-dark); margin-bottom: 10px; letter-spacing: 0.02em; }
 .story-block p { color: var(--dark-text); font-size: 15px; }
 
-/* MAP */
-.map-embed { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 32px; }
+/* MAP + POI THEMES */
+.map-embed { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 40px; }
 .map-embed iframe { width: 100%; height: 400px; border: 0; display: block; }
+.poi-theme-group { margin-bottom: 36px; }
+.poi-theme-group h3 { font-size: 13px; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
 .poi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.poi-card { background: #fff; border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow-sm); transition: box-shadow .2s ease, transform .2s ease; }
+.poi-card { background: #fff; border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow-sm); transition: box-shadow .2s ease, transform .2s ease; cursor: pointer; }
 .poi-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
 .poi-card .name { font-weight: 700; font-size: 13.5px; color: var(--dark-text); }
 .poi-card .desc { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+/* POI MODAL */
+.poi-modal { position: fixed; inset: 0; background: rgba(10,14,12,0.82); backdrop-filter: blur(6px); z-index: 220;
+  display: none; align-items: center; justify-content: center; padding: 24px; opacity: 0; transition: opacity .25s ease; }
+.poi-modal.open { display: flex; }
+.poi-modal.show { opacity: 1; }
+.poi-modal-inner { max-width: 480px; width: 100%; background: #fff; border-radius: 18px; padding: 38px; position: relative;
+  box-shadow: var(--shadow-lg); transform: scale(0.97); transition: transform .25s ease; }
+.poi-modal.show .poi-modal-inner { transform: scale(1); }
+.poi-modal-inner .theme-tag { font-size: 11px; letter-spacing: 0.12em; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+.poi-modal-inner h4 { font-size: 21px; color: var(--bg-dark); margin-bottom: 6px; }
+.poi-modal-inner .dist { font-size: 12.5px; color: var(--muted); margin-bottom: 16px; font-weight: 600; }
+.poi-modal-inner p.blurb { font-size: 14.5px; color: var(--dark-text); margin-bottom: 24px; line-height: 1.65; }
+.poi-modal-close { position: absolute; top: 18px; right: 18px; background: rgba(20,26,22,0.06); border: none;
+  width: 34px; height: 34px; border-radius: 50%; font-size: 16px; cursor: pointer; transition: background .2s ease; }
+.poi-modal-close:hover { background: rgba(20,26,22,0.12); }
+.poi-modal-inner .btn { width: 100%; justify-content: center; }
 
 /* INSPECTION BANNER */
 .inspection-banner { background: linear-gradient(135deg, var(--bg-dark), #17301F); color: var(--light); padding: 50px 0; }
@@ -130,6 +149,13 @@ a { color: inherit; }
 .spec-list div { font-size: 13px; }
 .spec-list .k { color: var(--accent); font-weight: 700; display: block; font-size: 11px; letter-spacing: 0.07em; margin-bottom: 3px; }
 
+/* AGENT */
+.agent-grid { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: center; }
+.agent-grid .agent-photo { border-radius: var(--radius); width: 100%; height: 430px; object-fit: cover; box-shadow: var(--shadow-md); }
+.agent-bio p { margin-bottom: 16px; font-size: 15.5px; color: var(--dark-text); }
+.agent-credentials { margin-top: 22px; padding-top: 20px; border-top: 1px solid #ECE9E2; font-size: 12.5px; color: var(--muted); line-height: 1.75; }
+.agent-credentials strong { color: var(--dark-text); }
+
 /* TIMELINE */
 .timeline { border-left: 2px solid var(--light); padding-left: 28px; }
 .tl-item { position: relative; margin-bottom: 28px; }
@@ -142,10 +168,13 @@ a { color: inherit; }
 /* FOOTER */
 footer.site-footer { background: var(--bg-dark); color: var(--light); padding: 84px 0 40px; text-align: center; }
 footer.site-footer h2 { font-size: 30px; margin-bottom: 30px; }
-footer.site-footer .contact-name { font-weight: 800; margin-top: 26px; font-size: 16px; }
+footer.site-footer .agent-headshot { width: 108px; height: 108px; border-radius: 50%; object-fit: cover;
+  margin: 30px auto 0; border: 3px solid rgba(237,234,227,0.35); box-shadow: var(--shadow-md); }
+footer.site-footer .contact-name { font-weight: 800; margin-top: 18px; font-size: 16px; }
 footer.site-footer .contact-line { font-size: 13.5px; opacity: 0.85; margin-top: 6px; }
 footer.site-footer .share-line { font-style: italic; font-size: 13px; opacity: 0.8; margin-top: 24px; }
-footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38px; max-width: 640px; margin-left: auto; margin-right: auto; }
+footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.55; margin-top: 22px; max-width: 640px; margin-left: auto; margin-right: auto; }
+footer.site-footer .disclaimer + .disclaimer { margin-top: 12px; }
 
 /* LIGHTBOX */
 .lightbox { position: fixed; inset: 0; background: rgba(10,14,12,0.88); backdrop-filter: blur(6px); z-index: 200;
@@ -171,15 +200,26 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
 
 @media (max-width: 860px) {
   .wrap { padding: 0 20px; }
-  .hero h1 { font-size: 32px; }
-  .hero-media { height: 72vh; }
+  .hero h1 { font-size: 30px; }
+  .hero-media { height: 78vh; }
+  .btn { padding: 11px 18px; font-size: 12.5px; }
   .story-block { grid-template-columns: 1fr; }
   .poi-grid { grid-template-columns: 1fr 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .details-grid { grid-template-columns: 1fr; }
+  .agent-grid { grid-template-columns: 1fr; }
+  .agent-grid .agent-photo { height: 300px; }
   .lightbox-inner { grid-template-columns: 1fr; overflow-y: auto; }
   .nav ul { display: none; }
   .inspection-banner .wrap { flex-direction: column; align-items: flex-start; }
+  .stat-bar .wrap { grid-template-columns: repeat(3, 1fr); row-gap: 22px; }
+  .stat-bar .num { font-size: 23px; }
+  .stat-bar .label { font-size: 9.5px; letter-spacing: 0.06em; }
+}
+
+@media (max-width: 480px) {
+  .stat-bar .wrap { grid-template-columns: repeat(2, 1fr); }
+  .stat-bar .num { font-size: 22px; }
 }
 </style>
 </head>
@@ -193,7 +233,8 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
       <li><a href="#neighborhood">Neighborhood</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#details">Details</a></li>
-      <li><a href="#updates">Updates</a></li>
+      <li><a href="#agent">Agent</a></li>
+      <li><a href="#updates">Dates</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -206,11 +247,14 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
   </div>
   <div class="wrap hero-content">
     <div class="eyebrow">Tour825.com &middot; 825 NE 75th St, Roosevelt, Seattle</div>
-    <h1>A Home, and a Neighborhood Worth Bragging About.</h1>
-    <p class="sub">Roosevelt, Seattle &mdash; walkable to Green Lake and Maple Leaf, moments from the light rail, and closer to everything than you'd guess.</p>
+    <h1>A Home, and a Neighborhood Worth Loving.</h1>
+    <p class="sub">Roosevelt, Seattle - walkable to Green Lake and Maple Leaf, moments from the light rail, and closer to everything than you'd guess.</p>
     <div class="btn-row">
       <a class="btn btn-accent" href="#story">Read the Full Story</a>
-      <a class="btn btn-outline" href="mailto:Doug@Tour825.com?subject=Interested%20in%20825%20NE%2075th%20St&body=Hi%20Doug%2C%0A%0AI%27d%20like%20to%20schedule%20a%20tour%20of%20825%20NE%2075th%20St%2C%20Seattle.%0A%0AName%3A%20%0APhone%3A%20%0APreferred%20times%3A%20%0A%0AThanks%21">Contact Agent</a>
+      <a class="btn btn-outline" href="mailto:Doug@Tour825.com?subject=Request%3A%20Pre-Inspection%20Report%20%26%20Sewer%20Scope%20-%20825%20NE%2075th%20St&body=Hi%20Doug%2C%0A%0AI%27ve%20toured%20825%20NE%2075th%20St%20and%20would%20like%20to%20request%20a%20copy%20of%20the%20pre-inspection%20report%20and%20sewer%20scope.%0A%0AName%3A%20%0APhone%3A%20%0ADate%20of%20tour%3A%20%0A%0AThanks%21">Request Inspection / Sewer Scope</a>
+      <a class="btn btn-outline" href="#gallery">Images</a>
+      <a class="btn btn-accent" href="mailto:Doug@Tour825.com?subject=Interested%20in%20825%20NE%2075th%20St&body=Hi%20Doug%2C%0A%0AI%27d%20like%20to%20schedule%20a%20tour%20of%20825%20NE%2075th%20St%2C%20Seattle.%0A%0AName%3A%20%0APhone%3A%20%0APreferred%20times%3A%20%0A%0AThanks%21">Contact Agent</a>
+      <a class="btn btn-outline" href="#updates">Important Dates</a>
     </div>
   </div>
   <div class="scroll-cue">SCROLL &darr;</div>
@@ -222,6 +266,8 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
     <div><div class="num">4</div><div class="label">BED</div></div>
     <div><div class="num">2</div><div class="label">BATH</div></div>
     <div><div class="num">2,720</div><div class="label">SQ FT</div></div>
+    <div><div class="num">4,550</div><div class="label">LOT SQ FT</div></div>
+    <div><div class="num">1</div><div class="label">GARAGE</div></div>
     <div><div class="num">1909</div><div class="label">BUILT</div></div>
   </div>
 </section>
@@ -229,8 +275,8 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
 
 <div class="arrival reveal">
   <div class="wrap">
-    <p>Turn off NE 75th and the street noise falls away almost immediately &mdash; a long, private driveway
-    carries you back from the road, tucked behind mature landscaping, to a home that feels far more secluded
+    <p>Turn off NE 75th and the street noise falls away almost immediately: a long, secluded driveway
+    carries you back from the road, tucked behind mature landscaping, to a home that feels far more private
     than its walkable, in-city address would suggest. It's the kind of arrival that makes "fifteen minutes from
     downtown" hard to believe. <span style="opacity:0.55;">(Photo of the driveway coming soon.)</span></p>
   </div>
@@ -247,13 +293,13 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
         <div>
           <h4>LIFE</h4>
           <p>Life here runs on its own rhythm. Mornings start with coffee on the deck, the city skyline just
-          waking up across the water, before a lakeside walk or run around Green Lake &mdash; six-tenths of a
+          waking up across the water, before a lakeside walk or run around Green Lake, six-tenths of a
           mile away and one of Seattle's best-loved loops. Afternoons might mean a wander through Cowen Park's
           ravine trails, a stroller loop around the Maple Leaf Reservoir, or a coffee run to one of the
           neighborhood's espresso spots. When the sun starts to dip, Roosevelt's small business district is a
-          five-minute walk: vegetarian comfort food at Sunlight Cafe, brunch and bar food at The Maple, a slice
-          at Olympic Pizza, or sushi at Sushi Tokyo. It's a neighborhood built for actually living in, not just
-          passing through.</p>
+          five-minute walk: organic breakfast at Portage Bay Cafe, fresh-baked pastries at Macrina Bakery & Cafe,
+          brunch and bar food at The Maple, a slice at Olympic Pizza, or sushi at Sushi Tokyo. It's a neighborhood
+          built for actually living in, not just passing through.</p>
         </div>
       </div>
       <div class="story-block reveal">
@@ -262,7 +308,7 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
           <h4>THE COMMUTE</h4>
           <p>This is about as centrally located as Seattle gets. I-5's Roosevelt/Ravenna exit is minutes away,
           putting downtown Seattle roughly fifteen minutes south with no surface streets required. Heading east,
-          SR 520 is a straight shot from I-5, making the Eastside &mdash; Microsoft, Bellevue, Redmond &mdash; a
+          SR 520 is a straight shot from I-5, making the Eastside, Microsoft, Bellevue, Redmond, a
           realistic reverse commute. Headed north, that same freeway access puts Northgate, Shoreline, and
           Everett all within easy reach. And on car-free days, the Roosevelt light rail station is a half-mile
           walk, with direct service to the University of Washington, Capitol Hill, Downtown, and Sea-Tac Airport.</p>
@@ -273,8 +319,8 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
         <div>
           <h4>THE SCHOOLS</h4>
           <p>Roosevelt High School, rated 10 out of 10 by GreatSchools, is a half-mile walk from the front door.
-          For families interested in Seattle Public Schools' option programs, Thornton Creek Elementary &mdash;
-          a PreK-5 open-enrollment option school in the View Ridge/Wedgwood area &mdash; is about a three-mile
+          For families interested in Seattle Public Schools' option programs, Thornton Creek Elementary, a
+          PreK-5 open-enrollment option school in the View Ridge/Wedgwood area, is about a three-mile
           drive and open to students citywide, regardless of home address.</p>
         </div>
       </div>
@@ -287,27 +333,14 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
   <div class="wrap">
     <div class="kicker">The Neighborhood</div>
     <h2>What's Around You</h2>
-    <p class="lede">An interactive map centered on 825 NE 75th St, plus the fifteen places that come up most when people describe this pocket of Roosevelt.</p>
+    <p class="lede">An interactive map centered on 825 NE 75th St, organized by what matters most: food, groceries, parks, and getting around. Click any card for details and a link to the real site.</p>
     <div class="map-embed">
       <iframe src="https://www.google.com/maps?q=825+NE+75th+St,+Seattle,+WA+98115&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <div class="poi-grid">
-      <div class="poi-card"><div class="name">Green Lake Park</div><div class="desc">0.6 mi — walking loop, swimming, paddleboards</div></div>
-<div class="poi-card"><div class="name">Roosevelt Link Light Rail Station</div><div class="desc">0.5 mi — UW, Capitol Hill, Downtown, Sea-Tac</div></div>
-<div class="poi-card"><div class="name">Whole Foods Market, Roosevelt Square</div><div class="desc">Neighborhood grocery anchor</div></div>
-<div class="poi-card"><div class="name">Safeway</div><div class="desc">Second grocery option nearby</div></div>
-<div class="poi-card"><div class="name">Roosevelt High School</div><div class="desc">0.5 mi — GreatSchools 10/10</div></div>
-<div class="poi-card"><div class="name">Cowen Park</div><div class="desc">Wooded ravine, connects to Ravenna Park</div></div>
-<div class="poi-card"><div class="name">Ravenna Park</div><div class="desc">Old-growth ravine, walking trails</div></div>
-<div class="poi-card"><div class="name">Sunlight Cafe</div><div class="desc">Neighborhood favorite vegetarian breakfast</div></div>
-<div class="poi-card"><div class="name">The Maple</div><div class="desc">Popular brunch & bar food</div></div>
-<div class="poi-card"><div class="name">Olympic Pizza & Pasta</div><div class="desc">Neighborhood Italian</div></div>
-<div class="poi-card"><div class="name">Sushi Tokyo</div><div class="desc">Local sushi spot</div></div>
-<div class="poi-card"><div class="name">Wayward Coffeehouse</div><div class="desc">Roosevelt coffee shop</div></div>
-<div class="poi-card"><div class="name">Burke-Gilman Trail</div><div class="desc">Regional biking & walking trail access</div></div>
-<div class="poi-card"><div class="name">I-5, Exit 170 (Roosevelt/Ravenna)</div><div class="desc">Direct freeway on-ramp</div></div>
-<div class="poi-card"><div class="name">University of Washington</div><div class="desc">~2 miles — via light rail or car</div></div>
-    </div>
+    <div class="poi-theme-group reveal"><h3>Restaurants & Cafes</h3><div class="poi-grid"><div class="poi-card" onclick="openPoi(0)"><div class="name">Portage Bay Cafe</div><div class="desc">0.5 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(1)"><div class="name">Macrina Bakery & Cafe</div><div class="desc">0.6 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(2)"><div class="name">Noi Thai Cuisine</div><div class="desc">1.0 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(3)"><div class="name">Atlantic Crossing</div><div class="desc">0.7 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(4)"><div class="name">Old 5th Avenue Tavern</div><div class="desc">0.8 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(5)"><div class="name">Project 9 Brewing Co.</div><div class="desc">0.6 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(6)"><div class="name">The Sweet Side</div><div class="desc">0.8 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(7)"><div class="name">Mojito - Latin American Food & Fun</div><div class="desc">1.8 mi &middot; click for details</div></div></div></div>
+<div class="poi-theme-group reveal"><h3>Grocery & Everyday</h3><div class="poi-grid"><div class="poi-card" onclick="openPoi(8)"><div class="name">Whole Foods Market</div><div class="desc">0.4 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(9)"><div class="name">PCC Community Markets</div><div class="desc">0.9 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(10)"><div class="name">Safeway</div><div class="desc">0.5 mi &middot; click for details</div></div></div></div>
+<div class="poi-theme-group reveal"><h3>Parks & Trails</h3><div class="poi-grid"><div class="poi-card" onclick="openPoi(11)"><div class="name">Green Lake Park</div><div class="desc">0.6 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(12)"><div class="name">Maple Leaf Reservoir Park</div><div class="desc">0.7 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(13)"><div class="name">Magnuson Park</div><div class="desc">2.3 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(14)"><div class="name">Cowen Park</div><div class="desc">0.9 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(15)"><div class="name">Ravenna Park</div><div class="desc">1.0 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(16)"><div class="name">Burke-Gilman Trail</div><div class="desc">1.2 mi &middot; click for details</div></div></div></div>
+<div class="poi-theme-group reveal"><h3>Getting Around & Health</h3><div class="poi-grid"><div class="poi-card" onclick="openPoi(17)"><div class="name">Roosevelt Link Light Rail Station</div><div class="desc">0.5 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(18)"><div class="name">UW Medicine - Northwest (Northgate)</div><div class="desc">~3.8 mi &middot; click for details</div></div><div class="poi-card" onclick="openPoi(19)"><div class="name">Seattle Children's Hospital</div><div class="desc">~3.2 mi &middot; click for details</div></div></div></div>
   </div>
 </section>
 
@@ -316,8 +349,8 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
   <div class="wrap">
     <div>
       <h3>Pre-Inspection Report &amp; Sewer Scope Available</h3>
-      <p>Both have already been completed for this home and are available to serious buyers &mdash;
-      after a private tour has taken place. Schedule a tour below, then request the reports.</p>
+      <p>Both have already been completed for this home and are available to serious buyers, after a private
+      tour has taken place. Schedule a tour below, then request the reports.</p>
     </div>
     <a class="btn btn-accent" href="mailto:Doug@Tour825.com?subject=Request%3A%20Pre-Inspection%20Report%20%26%20Sewer%20Scope%20-%20825%20NE%2075th%20St&body=Hi%20Doug%2C%0A%0AI%27ve%20toured%20825%20NE%2075th%20St%20and%20would%20like%20to%20request%20a%20copy%20of%20the%20pre-inspection%20report%20and%20sewer%20scope.%0A%0AName%3A%20%0APhone%3A%20%0ADate%20of%20tour%3A%20%0A%0AThanks%21">Request Inspection Report / Sewer Scope</a>
   </div>
@@ -330,9 +363,9 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
     <h2 class="reveal">A Closer Look, Room by Room</h2>
     <p class="lede reveal">Click any photo to see it larger, with more detail on what you're looking at.</p>
     <div class="gallery-group reveal"><h3>Exterior & Curb Appeal</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(0)"><img src="exterior-front-01.jpg" alt="Craftsman facade, terraced front garden" loading="lazy"><figcaption>Craftsman facade, terraced front garden</figcaption></figure><figure class="clickable" onclick="openLightbox(1)"><img src="exterior-front-02.jpg" alt="Side profile & chimney" loading="lazy"><figcaption>Side profile & chimney</figcaption></figure><figure class="clickable" onclick="openLightbox(2)"><img src="porch-entry-01.jpg" alt="Covered front porch and entry at 825" loading="lazy"><figcaption>Covered front porch and entry at 825</figcaption></figure><figure class="clickable" onclick="openLightbox(3)"><img src="garage-shop-exterior-01.jpg" alt="Attached garage & shop" loading="lazy"><figcaption>Attached garage & shop</figcaption></figure></div></div>
-<div class="gallery-group reveal"><h3>Main Living Spaces</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(4)"><img src="living-room-main-01.jpg" alt="Living room — fireplace & custom built-ins" loading="lazy"><figcaption>Living room — fireplace & custom built-ins</figcaption></figure><figure class="clickable" onclick="openLightbox(5)"><img src="dining-room-01.jpg" alt="Dining room" loading="lazy"><figcaption>Dining room</figcaption></figure><figure class="clickable" onclick="openLightbox(6)"><img src="kitchen-01.jpg" alt="Kitchen" loading="lazy"><figcaption>Kitchen</figcaption></figure><figure class="clickable" onclick="openLightbox(7)"><img src="kitchen-02.jpg" alt="Kitchen, second angle" loading="lazy"><figcaption>Kitchen, second angle</figcaption></figure></div></div>
-<div class="gallery-group reveal"><h3>Upper Family Room & Views</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(8)"><img src="family-room-01.jpg" alt="Family room — fireplace & French doors to deck" loading="lazy"><figcaption>Family room — fireplace & French doors to deck</figcaption></figure><figure class="clickable" onclick="openLightbox(9)"><img src="family-room-02.jpg" alt="Family room, second angle" loading="lazy"><figcaption>Family room, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(10)"><img src="deck-view-01.jpg" alt="Deck — city & mountain views" loading="lazy"><figcaption>Deck — city & mountain views</figcaption></figure><figure class="clickable" onclick="openLightbox(11)"><img src="view-skyline-01.jpg" alt="The view from upstairs" loading="lazy"><figcaption>The view from upstairs</figcaption></figure></div></div>
-<div class="gallery-group reveal"><h3>Bedrooms, Office & Baths</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(12)"><img src="primary-suite-01.jpg" alt="Primary suite — vaulted ceiling" loading="lazy"><figcaption>Primary suite — vaulted ceiling</figcaption></figure><figure class="clickable" onclick="openLightbox(13)"><img src="primary-suite-02.jpg" alt="Primary suite, second angle" loading="lazy"><figcaption>Primary suite, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(14)"><img src="bedroom-secondary-01.jpg" alt="Second bedroom" loading="lazy"><figcaption>Second bedroom</figcaption></figure><figure class="clickable" onclick="openLightbox(15)"><img src="office-den-01.jpg" alt="Office / den" loading="lazy"><figcaption>Office / den</figcaption></figure><figure class="clickable" onclick="openLightbox(16)"><img src="bathroom-01.jpg" alt="Full bathroom" loading="lazy"><figcaption>Full bathroom</figcaption></figure><figure class="clickable" onclick="openLightbox(17)"><img src="bathroom-vanity-02.jpg" alt="Bath — vanity & skylight" loading="lazy"><figcaption>Bath — vanity & skylight</figcaption></figure></div></div>
+<div class="gallery-group reveal"><h3>Main Living Spaces</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(4)"><img src="living-room-main-01.jpg" alt="Living room - fireplace & custom built-ins" loading="lazy"><figcaption>Living room - fireplace & custom built-ins</figcaption></figure><figure class="clickable" onclick="openLightbox(5)"><img src="dining-room-01.jpg" alt="Dining room" loading="lazy"><figcaption>Dining room</figcaption></figure><figure class="clickable" onclick="openLightbox(6)"><img src="kitchen-01.jpg" alt="Kitchen" loading="lazy"><figcaption>Kitchen</figcaption></figure><figure class="clickable" onclick="openLightbox(7)"><img src="kitchen-02.jpg" alt="Kitchen, second angle" loading="lazy"><figcaption>Kitchen, second angle</figcaption></figure></div></div>
+<div class="gallery-group reveal"><h3>Upper Family Room & Views</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(8)"><img src="family-room-01.jpg" alt="Family room - fireplace & French doors to deck" loading="lazy"><figcaption>Family room - fireplace & French doors to deck</figcaption></figure><figure class="clickable" onclick="openLightbox(9)"><img src="family-room-02.jpg" alt="Family room, second angle" loading="lazy"><figcaption>Family room, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(10)"><img src="deck-view-01.jpg" alt="Deck - city & mountain views" loading="lazy"><figcaption>Deck - city & mountain views</figcaption></figure><figure class="clickable" onclick="openLightbox(11)"><img src="view-skyline-01.jpg" alt="The view from upstairs" loading="lazy"><figcaption>The view from upstairs</figcaption></figure></div></div>
+<div class="gallery-group reveal"><h3>Bedrooms, Office & Baths</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(12)"><img src="primary-suite-01.jpg" alt="Primary suite - vaulted ceiling" loading="lazy"><figcaption>Primary suite - vaulted ceiling</figcaption></figure><figure class="clickable" onclick="openLightbox(13)"><img src="primary-suite-02.jpg" alt="Primary suite, second angle" loading="lazy"><figcaption>Primary suite, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(14)"><img src="bedroom-secondary-01.jpg" alt="Second bedroom" loading="lazy"><figcaption>Second bedroom</figcaption></figure><figure class="clickable" onclick="openLightbox(15)"><img src="office-den-01.jpg" alt="Office / den" loading="lazy"><figcaption>Office / den</figcaption></figure><figure class="clickable" onclick="openLightbox(16)"><img src="bathroom-01.jpg" alt="Full bathroom" loading="lazy"><figcaption>Full bathroom</figcaption></figure><figure class="clickable" onclick="openLightbox(17)"><img src="bathroom-vanity-02.jpg" alt="Bath - vanity & skylight" loading="lazy"><figcaption>Bath - vanity & skylight</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Lower Level & Shop</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(18)"><img src="lower-level-rec-01.jpg" alt="Lower level rec area" loading="lazy"><figcaption>Lower level rec area</figcaption></figure><figure class="clickable" onclick="openLightbox(19)"><img src="lower-bedroom-01.jpg" alt="Lower-level guest room" loading="lazy"><figcaption>Lower-level guest room</figcaption></figure><figure class="clickable" onclick="openLightbox(20)"><img src="laundry-utility-01.jpg" alt="Laundry / utility" loading="lazy"><figcaption>Laundry / utility</figcaption></figure><figure class="clickable" onclick="openLightbox(21)"><img src="shop-01.jpg" alt="Dedicated shop" loading="lazy"><figcaption>Dedicated shop</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Outdoor</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(22)"><img src="garden-01.jpg" alt="Secluded garden, out back" loading="lazy"><figcaption>Secluded garden, out back</figcaption></figure><figure class="clickable" onclick="openLightbox(23)"><img src="shop-02.jpg" alt="Shop workbench detail" loading="lazy"><figcaption>Shop workbench detail</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>More On the Way</h3><div class="gallery-grid"><div class="soon">+ DRIVEWAY PHOTO<br>COMING SOON</div><div class="soon">+ MORE PHOTOS<br>COMING SOON</div></div></div>
@@ -347,8 +380,8 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
     <div class="details-grid" style="margin-top:32px;">
       <div class="desc">
         <p>Perched above what locals call Banner Island, this 1909 craftsman has been meticulously re-crafted inside and out, with custom built-ins on every level and a light-filled floor plan that still carries all its original character. The main floor pairs a fireplace-and-built-in living room with a formal dining room and an eat-in kitchen; upstairs, a second family room with its own fireplace opens through French doors to a view deck looking out over the city and the mountains.</p>
-        <p>The vaulted primary suite, capped with an exposed beam and a wall of windows, is the showpiece — but there's plenty of room to spread out, including a second bedroom, a home office, two full baths, a partially finished lower level with a guest room and rec space, and a dedicated shop off the attached garage. Out front, a long, private driveway and terraced planting beds lead up to the covered porch; out back, a secluded, professionally landscaped garden offers a quiet retreat two blocks from Green Lake.</p>
-        <p style="font-style:italic; color:#6B6459; font-size:13.5px;">Copy above is drafted from the property's 2015 MLS listing (#821607) and public records — flag anything that's changed since (renovations, current condition) and it'll be updated.</p>
+        <p>The vaulted primary suite, capped with an exposed beam and a wall of windows, is the showpiece, but there's plenty of room to spread out, including a second bedroom, a home office, two full baths, a partially finished lower level with a guest room and rec space, and a dedicated shop off the attached garage. Out front, a long, secluded driveway and terraced planting beds lead up to the covered porch; out back, a secluded, professionally landscaped garden offers a quiet retreat two blocks from Green Lake.</p>
+        <p style="font-style:italic; color:#6B6459; font-size:13.5px;">Copy above is drafted from the property's 2015 MLS listing (#821607) and public records; flag anything that's changed since (renovations, current condition) and it'll be updated.</p>
       </div>
       <div class="spec-list">
         <div><span class="k">BEDROOMS</span>4</div>
@@ -366,7 +399,35 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
         <div><span class="k">NEIGHBORHOOD</span>Roosevelt, Seattle 98115</div>
         <div><span class="k">SUBDIVISION</span>Wallingford's Park Add.</div>
         <div><span class="k">ASKING PRICE</span>$1,315,000</div>
-        <div><span class="k">PROPERTY TAXES</span>[ Confirm current year ]</div>
+        <div><span class="k">PROPERTY TAXES</span>$12,826 (2026)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section reveal" id="agent">
+  <div class="wrap">
+    <div class="kicker">Meet Your Agent</div>
+    <h2>About Doug</h2>
+    <div class="agent-grid" style="margin-top:32px;">
+      <img class="agent-photo" src="agent-family-01.jpg" alt="Doug Kikendall with his family">
+      <div class="agent-bio">
+        <p>Before anything else, I'm a father. Then a husband. And for the last two decades, a member of this
+        Seattle community I love. I've had the good fortune to call 825 NE 75th St home for more than ten years
+        now: first as a long list of renovation projects, and eventually as the place where my wife and I built
+        our family.</p>
+        <p>This is the house where our kids took their first steps, where holidays piled everyone we love around
+        the table, and where a decade of ordinary Tuesdays turned into the memories that matter most. As a
+        licensed Washington real estate broker, I've walked plenty of buyers through plenty of houses, but this
+        one is personal. I'm not just listing a property; I'm handing off a home I've loved to whoever writes its
+        next chapter, and I'd be honored to show it to you myself.</p>
+        <div class="agent-credentials">
+          <strong>Douglas Edward Kikendall</strong><br>
+          WA Real Estate Broker License #24012665, Pellego Inc<br>
+          Doug is both the property owner/seller and the listing broker for this home. Buyers are encouraged to
+          consult their own licensed real estate broker for representation.
+        </div>
       </div>
     </div>
   </div>
@@ -375,29 +436,29 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
 
 <section class="section reveal" id="updates">
   <div class="wrap">
-    <div class="kicker">Listing Updates</div>
-    <h2>What's New</h2>
-    <p class="lede">Price changes, open houses, and new photos will be posted here as the listing moves forward.</p>
+    <div class="kicker">Important Dates</div>
+    <h2>Listing Updates</h2>
+    <p class="lede">Key dates for 825 NE 75th St as this listing moves from private walkthroughs to offer review.</p>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-date">AUG 16, 2026</div>
-        <h4>Site Launched</h4>
-        <p>Welcome to Tour825.com. Full listing details and the photo gallery below are live — more is on the way.</p>
+        <div class="tl-date">SEP 7 - SEP 9, 2026</div>
+        <h4>Private Pre-Walkthroughs</h4>
+        <p>Available by appointment ahead of the public listing. Contact Doug to schedule a private walkthrough.</p>
       </div>
       <div class="tl-item">
-        <div class="tl-date">AVAILABLE NOW</div>
-        <h4>Pre-Inspection Report &amp; Sewer Scope</h4>
-        <p>Both are complete and available to serious buyers after a private tour — use the "Request Inspection Report" button above.</p>
+        <div class="tl-date">SEP 10, 2026</div>
+        <h4>Listed on the MLS</h4>
+        <p>825 NE 75th St officially hits the Northwest MLS and public listing sites.</p>
       </div>
       <div class="tl-item">
-        <div class="tl-date">COMING SOON</div>
-        <h4>New Photos</h4>
-        <p>Current interior and exterior photos — including the driveway — will be added here and in the gallery above as they're taken.</p>
+        <div class="tl-date">FRI SEP 11 - SUN SEP 13, 2026</div>
+        <h4>Open Houses</h4>
+        <p>Open house weekend, Friday through Sunday. Exact times are still being finalized and will be posted here and on the flyer once confirmed.</p>
       </div>
       <div class="tl-item">
-        <div class="tl-date">TBD</div>
-        <h4>Open House</h4>
-        <p>Date and time to be announced.</p>
+        <div class="tl-date">EOD SEP 15, 2026</div>
+        <h4>Offer Review Date</h4>
+        <p>All offers will be reviewed by end of day. Doug will respond to all submitting parties shortly after.</p>
       </div>
     </div>
   </div>
@@ -411,10 +472,12 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
       <a class="btn btn-accent" href="mailto:Doug@Tour825.com?subject=Interested%20in%20825%20NE%2075th%20St&body=Hi%20Doug%2C%0A%0AI%27d%20like%20to%20schedule%20a%20tour%20of%20825%20NE%2075th%20St%2C%20Seattle.%0A%0AName%3A%20%0APhone%3A%20%0APreferred%20times%3A%20%0A%0AThanks%21">Contact Agent</a>
       <a class="btn btn-outline" href="mailto:Doug@Tour825.com?subject=Request%3A%20Pre-Inspection%20Report%20%26%20Sewer%20Scope%20-%20825%20NE%2075th%20St&body=Hi%20Doug%2C%0A%0AI%27ve%20toured%20825%20NE%2075th%20St%20and%20would%20like%20to%20request%20a%20copy%20of%20the%20pre-inspection%20report%20and%20sewer%20scope.%0A%0AName%3A%20%0APhone%3A%20%0ADate%20of%20tour%3A%20%0A%0AThanks%21">Request Inspection Report / Sewer Scope</a>
     </div>
-    <div class="contact-name">Doug Kikendall &mdash; Listing Agent</div>
-    <div class="contact-line">Tour825.com &nbsp;|&nbsp; Phone: [Google Voice number — TBD] &nbsp;|&nbsp; Email: Doug@Tour825.com</div>
+    <img class="agent-headshot" src="agent-headshot-01.jpg" alt="Douglas Kikendall">
+    <div class="contact-name">Douglas Kikendall, Listing Broker</div>
+    <div class="contact-line">Tour825.com &nbsp;|&nbsp; Phone: [Google Voice number - TBD] &nbsp;|&nbsp; Email: Doug@Tour825.com</div>
     <div class="share-line">&ldquo;Know someone house-hunting in Roosevelt? Send this their way.&rdquo;</div>
-    <div class="disclaimer">Draft site &mdash; facts sourced from the 2015 NWMLS listing (#821607) and public county records; confirm current condition and photos before this goes fully live. Historical interior/exterior photos are from the 2015 listing photographer; replace with current photos when available. Pre-inspection report and sewer scope are available to serious buyers after a private property tour.</div>
+    <div class="disclaimer">WA Real Estate Broker License #24012665, Pellego Inc. Doug is both the licensed listing broker and the owner/seller of this property; buyers are encouraged to consult their own licensed real estate broker for representation. This home is offered in compliance with the Fair Housing Act and the Washington Law Against Discrimination, without regard to race, color, religion, sex, disability, familial status, national origin, or any other protected class. Equal Housing Opportunity.</div>
+    <div class="disclaimer">Draft site: facts sourced from the 2015 NWMLS listing (#821607) and public county records; confirm current condition and photos before this goes fully live. Historical interior/exterior photos are from the 2015 listing photographer; replace with current photos when available. Pre-inspection report and sewer scope are available to serious buyers after a private property tour.</div>
   </div>
 </footer>
 
@@ -434,8 +497,20 @@ footer.site-footer .disclaimer { font-size: 10.5px; opacity: 0.5; margin-top: 38
 </div>
 
 
+<div class="poi-modal" id="poi-modal">
+  <div class="poi-modal-inner">
+    <button class="poi-modal-close" onclick="closePoi()">&times;</button>
+    <div class="theme-tag" id="poi-theme"></div>
+    <h4 id="poi-name"></h4>
+    <div class="dist" id="poi-dist"></div>
+    <p class="blurb" id="poi-blurb"></p>
+    <a class="btn btn-accent" id="poi-link" href="#" target="_blank" rel="noopener">Visit Website</a>
+  </div>
+</div>
+
+
 <script>
-const galleryData = [{"src": "exterior-front-01.jpg", "caption": "Craftsman facade, terraced front garden", "detail": "Built in 1909 and still wearing its craftsman bones proudly: tapered porch columns, exposed rafter tails, and a stone-and-shingle facade framed by terraced planting beds that step down toward the street."}, {"src": "exterior-front-02.jpg", "caption": "Side profile & chimney", "detail": "A side view showing the home's full massing. The brick chimney serves one of the two working fireplaces inside, and the stone base wraps the whole footprint of the house."}, {"src": "porch-entry-01.jpg", "caption": "Covered front porch and entry at 825", "detail": "The covered front porch is deep enough for real furniture, not just a doormat \u2014 a quiet spot for morning coffee before the day starts, right at the top of the stairs."}, {"src": "garage-shop-exterior-01.jpg", "caption": "Attached garage & shop", "detail": "Beyond the attached garage sits a genuine dedicated shop space \u2014 pegboard walls, a full workbench, and enough room for real projects, not just storage."}, {"src": "living-room-main-01.jpg", "caption": "Living room \u2014 fireplace & custom built-ins", "detail": "One of the home's two fireplaces anchors the main-floor living room, flanked by custom built-in shelving original to the home's character but clearly well cared for."}, {"src": "dining-room-01.jpg", "caption": "Dining room", "detail": "A proper formal dining room, large enough for a full-size table and a real dinner party, just off the kitchen for easy serving."}, {"src": "kitchen-01.jpg", "caption": "Kitchen", "detail": "The kitchen's peninsula creates a natural gathering spot, with pendant lighting overhead and a window over the sink looking out toward the street."}, {"src": "kitchen-02.jpg", "caption": "Kitchen, second angle", "detail": "A second view of the kitchen's full U-shaped layout, showing how much counter and storage space is packed into the footprint."}, {"src": "family-room-01.jpg", "caption": "Family room \u2014 fireplace & French doors to deck", "detail": "The upper-level family room has its own fireplace and French doors that open straight onto the view deck \u2014 indoor and outdoor living, connected."}, {"src": "family-room-02.jpg", "caption": "Family room, second angle", "detail": "From the sectional, the room's blue-toned walls and hardwood floors read as calm and current, not dated \u2014 a genuinely liveable space, not a showroom."}, {"src": "deck-view-01.jpg", "caption": "Deck \u2014 city & mountain views", "detail": "This is where the city and mountain views become real \u2014 a private deck with room for a full outdoor dining set and a skyline that doesn't get old."}, {"src": "view-skyline-01.jpg", "caption": "The view from upstairs", "detail": "Even from inside, the upper level's windows frame downtown Seattle and the horizon beyond \u2014 the kind of view that's genuinely rare at this price point."}, {"src": "primary-suite-01.jpg", "caption": "Primary suite \u2014 vaulted ceiling", "detail": "The primary suite's vaulted ceiling and exposed beam give it a scale you don't expect from a 1909 home \u2014 more great room than bedroom."}, {"src": "primary-suite-02.jpg", "caption": "Primary suite, second angle", "detail": "A wall of windows floods the primary suite with natural light and frames another slice of the view \u2014 waking up here is part of the pitch."}, {"src": "bedroom-secondary-01.jpg", "caption": "Second bedroom", "detail": "A comfortably sized second bedroom with its own closet \u2014 flexible as a kid's room, guest room, or dedicated home office."}, {"src": "office-den-01.jpg", "caption": "Office / den", "detail": "A dedicated home office with built-in shelving already in place \u2014 work from home without giving up a bedroom to do it."}, {"src": "bathroom-01.jpg", "caption": "Full bathroom", "detail": "A full bath with a corner shower and pedestal sink \u2014 classic fixtures that suit the home's original character."}, {"src": "bathroom-vanity-02.jpg", "caption": "Bath \u2014 vanity & skylight", "detail": "A skylight keeps this second bath naturally bright all day, with a separate toilet nook for privacy and a full vanity with real counter space."}, {"src": "lower-level-rec-01.jpg", "caption": "Lower level rec area", "detail": "The partially finished lower level adds genuine bonus square footage \u2014 flexible space for a rec room, home gym, or overflow storage."}, {"src": "lower-bedroom-01.jpg", "caption": "Lower-level guest room", "detail": "A wood-paneled lower-level room doubles as a guest room or the quietest home office in the house \u2014 tucked away from the main living areas."}, {"src": "laundry-utility-01.jpg", "caption": "Laundry / utility", "detail": "A full laundry and utility room with real counter and shelf space \u2014 not a closet with a stacked unit."}, {"src": "shop-01.jpg", "caption": "Dedicated shop", "detail": "A serious workbench setup with pegboard tool storage \u2014 built for someone who actually uses a shop, not just stores boxes in one."}, {"src": "garden-01.jpg", "caption": "Secluded garden, out back", "detail": "A professionally landscaped, partially fenced garden with a gravel path winding through mature plantings \u2014 private enough to forget you're in the city."}, {"src": "shop-02.jpg", "caption": "Shop workbench detail", "detail": "A closer look at the shop's workbench and built-in cabinetry \u2014 storage designed in, not improvised."}];
+const galleryData = [{"src": "exterior-front-01.jpg", "caption": "Craftsman facade, terraced front garden", "detail": "Built in 1909 and still wearing its craftsman bones proudly: tapered porch columns, exposed rafter tails, and a stone-and-shingle facade framed by terraced planting beds that step down toward the street."}, {"src": "exterior-front-02.jpg", "caption": "Side profile & chimney", "detail": "A side view showing the home's full massing. The brick chimney serves one of the two working fireplaces inside, and the stone base wraps the whole footprint of the house."}, {"src": "porch-entry-01.jpg", "caption": "Covered front porch and entry at 825", "detail": "The covered front porch is deep enough for real furniture, not just a doormat: a quiet spot for morning coffee before the day starts, right at the top of the stairs."}, {"src": "garage-shop-exterior-01.jpg", "caption": "Attached garage & shop", "detail": "Beyond the attached garage sits a genuine dedicated shop space: pegboard walls, a full workbench, and enough room for real projects, not just storage."}, {"src": "living-room-main-01.jpg", "caption": "Living room - fireplace & custom built-ins", "detail": "One of the home's two fireplaces anchors the main-floor living room, flanked by custom built-in shelving original to the home's character but clearly well cared for."}, {"src": "dining-room-01.jpg", "caption": "Dining room", "detail": "A proper formal dining room, large enough for a full-size table and a real dinner party, just off the kitchen for easy serving."}, {"src": "kitchen-01.jpg", "caption": "Kitchen", "detail": "The kitchen's peninsula creates a natural gathering spot, with pendant lighting overhead and a window over the sink looking out toward the street."}, {"src": "kitchen-02.jpg", "caption": "Kitchen, second angle", "detail": "A second view of the kitchen's full U-shaped layout, showing how much counter and storage space is packed into the footprint."}, {"src": "family-room-01.jpg", "caption": "Family room - fireplace & French doors to deck", "detail": "The upper-level family room has its own fireplace and French doors that open straight onto the view deck: indoor and outdoor living, connected."}, {"src": "family-room-02.jpg", "caption": "Family room, second angle", "detail": "From the sectional, the room's blue-toned walls and hardwood floors read as calm and current, not dated: a genuinely liveable space, not a showroom."}, {"src": "deck-view-01.jpg", "caption": "Deck - city & mountain views", "detail": "This is where the city and mountain views become real: a private deck with room for a full outdoor dining set and a skyline that doesn't get old."}, {"src": "view-skyline-01.jpg", "caption": "The view from upstairs", "detail": "Even from inside, the upper level's windows frame downtown Seattle and the horizon beyond: the kind of view that's genuinely rare at this price point."}, {"src": "primary-suite-01.jpg", "caption": "Primary suite - vaulted ceiling", "detail": "The primary suite's vaulted ceiling and exposed beam give it a scale you don't expect from a 1909 home: more great room than bedroom."}, {"src": "primary-suite-02.jpg", "caption": "Primary suite, second angle", "detail": "A wall of windows floods the primary suite with natural light and frames another slice of the view: waking up here is part of the pitch."}, {"src": "bedroom-secondary-01.jpg", "caption": "Second bedroom", "detail": "A comfortably sized second bedroom with its own closet: flexible as a kid's room, guest room, or dedicated home office."}, {"src": "office-den-01.jpg", "caption": "Office / den", "detail": "A dedicated home office with built-in shelving already in place: work from home without giving up a bedroom to do it."}, {"src": "bathroom-01.jpg", "caption": "Full bathroom", "detail": "A full bath with a corner shower and pedestal sink: classic fixtures that suit the home's original character."}, {"src": "bathroom-vanity-02.jpg", "caption": "Bath - vanity & skylight", "detail": "A skylight keeps this second bath naturally bright all day, with a separate toilet nook for privacy and a full vanity with real counter space."}, {"src": "lower-level-rec-01.jpg", "caption": "Lower level rec area", "detail": "The partially finished lower level adds genuine bonus square footage: flexible space for a rec room, home gym, or overflow storage."}, {"src": "lower-bedroom-01.jpg", "caption": "Lower-level guest room", "detail": "A wood-paneled lower-level room doubles as a guest room or the quietest home office in the house: tucked away from the main living areas."}, {"src": "laundry-utility-01.jpg", "caption": "Laundry / utility", "detail": "A full laundry and utility room with real counter and shelf space: not a closet with a stacked unit."}, {"src": "shop-01.jpg", "caption": "Dedicated shop", "detail": "A serious workbench setup with pegboard tool storage: built for someone who actually uses a shop, not just stores boxes in one."}, {"src": "garden-01.jpg", "caption": "Secluded garden, out back", "detail": "A professionally landscaped, partially fenced garden with a gravel path winding through mature plantings: private enough to forget you're in the city."}, {"src": "shop-02.jpg", "caption": "Shop workbench detail", "detail": "A closer look at the shop's workbench and built-in cabinetry: storage designed in, not improvised."}];
 let currentIndex = 0;
 function updateLightbox() {
   const item = galleryData[currentIndex];
@@ -467,6 +542,31 @@ document.addEventListener('keydown', function(e) {
 });
 document.getElementById('lightbox').addEventListener('click', function(e) {
   if (e.target === this) closeLightbox();
+});
+
+// --- POI modal ---
+const poiData = [{"theme": "Restaurants & Cafes", "name": "Portage Bay Cafe", "dist": "0.5 mi", "blurb": "Organic, farm-to-table breakfast and brunch just up Roosevelt Way, with a year-round patio and a menu built on Pacific Northwest ingredients.", "url": "https://www.portagebaycafe.com/roosevelt"}, {"theme": "Restaurants & Cafes", "name": "Macrina Bakery & Cafe", "dist": "0.6 mi", "blurb": "The Seattle bakery institution's Maple Leaf cafe, in a century-old building on Roosevelt Way NE. Pastries, sandwiches, and genuinely great bread.", "url": "https://macrinabakery.com/maple-leaf-cafe"}, {"theme": "Restaurants & Cafes", "name": "Noi Thai Cuisine", "dist": "1.0 mi", "blurb": "Royal Thai cuisine overlooking Green Lake, with a full bar and a menu built around recipes from Thailand's royal culinary tradition.", "url": "https://noithaiselect.com/noithaigreenlake"}, {"theme": "Restaurants & Cafes", "name": "Atlantic Crossing", "dist": "0.7 mi", "blurb": "A Green Lake gastropub open since 2004, pouring European beers and whiskey with big screens for Premier League and Sounders matches.", "url": "https://www.theatlanticcrossing.com/"}, {"theme": "Restaurants & Cafes", "name": "Old 5th Avenue Tavern", "dist": "0.8 mi", "blurb": "Maple Leaf's easygoing neighborhood dive bar, known for Taco Tuesday, Spaghetti Wednesday, and a genuinely friendly crowd.", "url": "https://www.facebook.com/oldfifthavetav/"}, {"theme": "Restaurants & Cafes", "name": "Project 9 Brewing Co.", "dist": "0.6 mi", "blurb": "An award-winning brewery on the Maple Leaf/Roosevelt line, pouring coffee in the morning and beer by afternoon. Family and dog friendly.", "url": "https://www.project9brewing.com/"}, {"theme": "Restaurants & Cafes", "name": "The Sweet Side", "dist": "0.8 mi", "blurb": "A Maple Leaf bakery known for its carrot cake, giant chocolate chip cookies, and French macarons. Ask about the walk-up cake slice window.", "url": "https://www.thesweetsideseattle.com/about"}, {"theme": "Restaurants & Cafes", "name": "Mojito - Latin American Food & Fun", "dist": "1.8 mi", "blurb": "A lively Colombian, Venezuelan, and Cuban kitchen and rum bar off Lake City Way, worth the short drive for the lechon asado alone.", "url": "https://mojito.netwaiter.com/"}, {"theme": "Grocery & Everyday", "name": "Whole Foods Market", "dist": "0.4 mi", "blurb": "The neighborhood's anchor grocery store at Roosevelt Square, an easy stop for the weekly shop or an Amazon return.", "url": "https://www.wholefoodsmarket.com/stores/roosevelt"}, {"theme": "Grocery & Everyday", "name": "PCC Community Markets", "dist": "0.9 mi", "blurb": "The Green Lake Village location of Seattle's community-owned co-op grocery, open daily from 6am to 11pm.", "url": "https://www.pccmarkets.com/stores/greenlake-village/"}, {"theme": "Grocery & Everyday", "name": "Safeway", "dist": "0.5 mi", "blurb": "A second full-size grocery option close by, for whichever run you didn't plan for.", "url": "https://www.safeway.com/"}, {"theme": "Parks & Trails", "name": "Green Lake Park", "dist": "0.6 mi", "blurb": "Seattle's favorite 2.8-mile walking and biking loop, with swimming, paddleboards, and a year-round crowd of neighbors getting their steps in.", "url": "https://www.seattle.gov/parks/parks/green-lake-park"}, {"theme": "Parks & Trails", "name": "Maple Leaf Reservoir Park", "dist": "0.7 mi", "blurb": "A quiet neighborhood park and reservoir just up the hill, with a play area and open lawn away from the Green Lake crowds.", "url": "https://www.seattle.gov/parks/parks/maple-leaf-reservoir-park"}, {"theme": "Parks & Trails", "name": "Magnuson Park", "dist": "2.3 mi", "blurb": "One of Seattle's largest parks, with an off-leash beach on Lake Washington, wetlands, sports fields, and miles of trails.", "url": "https://www.seattle.gov/parks/parks/magnuson-park"}, {"theme": "Parks & Trails", "name": "Cowen Park", "dist": "0.9 mi", "blurb": "A wooded ravine park connecting directly into Ravenna Park, with a play area, ballfield, and picnic spots.", "url": "https://www.seattle.gov/parks/parks/cowen-park"}, {"theme": "Parks & Trails", "name": "Ravenna Park", "dist": "1.0 mi", "blurb": "A half-mile old-growth ravine just north of the University District, popular for hiking, jogging, and picnics.", "url": "https://www.seattle.gov/parks/parks/ravenna-park"}, {"theme": "Parks & Trails", "name": "Burke-Gilman Trail", "dist": "1.2 mi", "blurb": "The regional biking and walking trail connecting Ballard to Bothell. The nearest access is a short ride south through Ravenna toward the University District.", "url": "https://www.seattle.gov/parks/parks/burke-gilman-trail"}, {"theme": "Getting Around & Health", "name": "Roosevelt Link Light Rail Station", "dist": "0.5 mi", "blurb": "Direct light rail service to the University of Washington, Capitol Hill, Downtown Seattle, and Sea-Tac Airport.", "url": "https://www.soundtransit.org/ride-with-us/stations-parking/roosevelt-station"}, {"theme": "Getting Around & Health", "name": "UW Medicine - Northwest (Northgate)", "dist": "~3.8 mi", "blurb": "A full-service hospital and emergency department near Northgate, about a 10-minute drive. Distance is approximate.", "url": "https://www.uwmedicine.org/locations/uw-medical-center-northwest"}, {"theme": "Getting Around & Health", "name": "Seattle Children's Hospital", "dist": "~3.2 mi", "blurb": "The Northwest's leading pediatric hospital, on Sand Point Way overlooking Lake Washington, about a 10-minute drive. Distance is approximate.", "url": "https://www.seattlechildrens.org/"}];
+function openPoi(i) {
+  const item = poiData[i];
+  document.getElementById('poi-theme').textContent = item.theme;
+  document.getElementById('poi-name').textContent = item.name;
+  document.getElementById('poi-dist').textContent = item.dist + ' from 825 NE 75th St';
+  document.getElementById('poi-blurb').textContent = item.blurb;
+  document.getElementById('poi-link').href = item.url;
+  const m = document.getElementById('poi-modal');
+  m.classList.add('open');
+  requestAnimationFrame(() => m.classList.add('show'));
+}
+function closePoi() {
+  const m = document.getElementById('poi-modal');
+  m.classList.remove('show');
+  setTimeout(() => m.classList.remove('open'), 220);
+}
+document.getElementById('poi-modal').addEventListener('click', function(e) {
+  if (e.target === this) closePoi();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && document.getElementById('poi-modal').classList.contains('open')) closePoi();
 });
 
 // scroll-reveal
