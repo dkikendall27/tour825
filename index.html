@@ -141,6 +141,7 @@ a { color: inherit; }
 .floorplan-rooms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .room-card { background: var(--light); border-radius: 12px; padding: 18px 20px; }
 .room-card .room-name { font-weight: 700; color: var(--dark-text); font-size: 14.5px; }
+.floorplan-disclaimer { font-size: 11.5px; font-style: italic; color: var(--muted); margin-top: 18px; max-width: 640px; }
 .room-card .qr-tag { display: inline-block; margin-top: 9px; font-size: 10px; letter-spacing: 0.05em;
   text-transform: uppercase; color: var(--muted); background: #fff; border: 1px dashed #C9C2B4; border-radius: 20px; padding: 3px 10px; }
 .floorplan-sketch-wrap { background: #FBFAF7; border: 1px solid #ECE7DC; border-radius: 12px; padding: 24px 16px 16px; }
@@ -160,8 +161,16 @@ a { color: inherit; }
 .room-modal-card .rm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .room-modal-card .rm-placeholder { height: 92px; border: 1.5px dashed #C9C2B4; border-radius: 10px; display: flex;
   align-items: center; justify-content: center; text-align: center; color: var(--muted); font-size: 11px; padding: 8px; }
+.room-modal-card .rm-photos-link { height: 92px; border: 1.5px solid var(--gold); border-radius: 10px; display: flex;
+  flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--bg-dark);
+  font-size: 12px; font-weight: 700; padding: 8px; text-decoration: none; gap: 6px; transition: background .15s ease; }
+.room-modal-card .rm-photos-link:hover { background: rgba(201,169,106,0.14); }
+.room-modal-card .rm-photos-arrow { color: var(--gold); font-size: 14px; }
 .room-modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 20px; color: var(--muted); cursor: pointer; line-height: 1; }
 .room-modal-close:hover { color: var(--dark-text); }
+
+.gallery-view { display: none; }
+.gallery-view.active { display: block; }
 
 /* GALLERY */
 .gallery-group { margin-bottom: 44px; }
@@ -245,12 +254,15 @@ footer.site-footer .powered-by { display: inline-flex; align-items: center; just
 footer.site-footer .powered-by img { height: 22px; width: auto; display: block; }
 
 /* BACK TO TOP */
-.back-to-top { position: fixed; right: 20px; bottom: 20px; width: 46px; height: 46px; border-radius: 50%;
-  background: var(--bg-dark); color: var(--gold); border: none; font-size: 18px; cursor: pointer;
+.back-to-top { position: fixed; right: 18px; bottom: 18px; width: 52px; height: 52px; border-radius: 50%;
+  background: var(--bg-dark); color: var(--gold); border: 2px solid var(--gold); cursor: pointer;
   box-shadow: var(--shadow-md); display: flex; align-items: center; justify-content: center;
-  opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease; z-index: 150; }
+  opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease, background .2s ease; z-index: 150; }
+.back-to-top svg { width: 24px; height: 24px; }
 .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-.back-to-top:hover { background: var(--gold); color: var(--bg-dark); }
+.back-to-top:hover { background: var(--gold); }
+.back-to-top:hover svg { stroke: var(--bg-dark); }
+.nav-top-link { color: var(--gold) !important; font-weight: 700; }
 
 /* LIGHTBOX */
 .lightbox { position: fixed; inset: 0; background: rgba(10,14,12,0.88); backdrop-filter: blur(6px); z-index: 200;
@@ -327,6 +339,8 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
         <a href="tel:+14256963684">425-696-DOUG</a>
         <span class="sep">&middot;</span>
         <a class="email-link" href="mailto:Doug@Tour825.com">Doug@Tour825.com</a>
+        <span class="sep">&middot;</span>
+        <a class="nav-top-link" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; Back to Top</a>
       </div>
     </div>
   </div>
@@ -459,8 +473,9 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
   <div class="wrap">
     <div class="kicker">Explore the Home</div>
     <h2>Floor Plan</h2>
-    <p class="lede">Four levels, each built for a different part of life. Tap a floor to see what's there.
-    During the open house, each room carries its own QR code that links straight back to this page.</p>
+    <p class="lede">Four levels, each built for a different part of life. Tap a floor to see what's there, then tap
+    any room name on the sketch for a closer look. During the open house, each room carries its own QR code that
+    links straight back to this page.</p>
     <div class="floorplan-tabs" style="margin-top:28px;"><button class="floorplan-tab active" data-floor="1" onclick="switchFloor('1')">Floor 1 &middot; Lower Level</button><button class="floorplan-tab" data-floor="2" onclick="switchFloor('2')">Floor 2 &middot; Main Level</button><button class="floorplan-tab" data-floor="3" onclick="switchFloor('3')">Floor 3 &middot; Upper Level</button><button class="floorplan-tab" data-floor="4" onclick="switchFloor('4')">Floor 4 &middot; Primary Level</button><button class="floorplan-tab" data-floor="garage" onclick="switchFloor('garage')">Garage</button></div>
     <div class="floorplan-panels"><div class="floorplan-panel active" id="floor-panel-1"><p class="floorplan-blurb">Partially finished bonus space: rec room, office, wine cellar, and the shop entry.</p>
 <div class="floorplan-image-wrap">
@@ -470,7 +485,7 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
 </div><div class="floorplan-panel" id="floor-panel-2"><p class="floorplan-blurb">Living room, dining room, kitchen, two bedrooms, a full bath, and a hall: the level you enter on.</p>
 <div class="floorplan-image-wrap">
 <img src="floorplan-2-main-level.png" alt="Main Level floor plan sketch">
-<button type="button" class="room-hotspot" style="left:17.5%;top:25.5%;width:15%;height:4%;" onclick="openRoomCard('Front Bedroom')" aria-label="Front Bedroom"></button><button type="button" class="room-hotspot" style="left:50.5%;top:27%;width:14%;height:4%;" onclick="openRoomCard('Kitchen')" aria-label="Kitchen"></button><button type="button" class="room-hotspot" style="left:18%;top:47%;width:13%;height:4%;" onclick="openRoomCard('Full Bath')" aria-label="Full Bath"></button><button type="button" class="room-hotspot" style="left:30%;top:47%;width:8%;height:4%;" onclick="openRoomCard('Hall')" aria-label="Hall"></button><button type="button" class="room-hotspot" style="left:50.5%;top:47.5%;width:14%;height:4%;" onclick="openRoomCard('Dining Room')" aria-label="Dining Room"></button><button type="button" class="room-hotspot" style="left:18%;top:65.5%;width:15%;height:4%;" onclick="openRoomCard('Back Bedroom')" aria-label="Back Bedroom"></button><button type="button" class="room-hotspot" style="left:50.5%;top:68%;width:14%;height:4%;" onclick="openRoomCard('Living Room')" aria-label="Living Room"></button>
+<button type="button" class="room-hotspot" style="left:17.5%;top:25.5%;width:15%;height:4%;" onclick="openRoomCard('Back Bedroom')" aria-label="Back Bedroom"></button><button type="button" class="room-hotspot" style="left:50.5%;top:27%;width:14%;height:4%;" onclick="openRoomCard('Kitchen')" aria-label="Kitchen"></button><button type="button" class="room-hotspot" style="left:18%;top:47%;width:13%;height:4%;" onclick="openRoomCard('Full Bath')" aria-label="Full Bath"></button><button type="button" class="room-hotspot" style="left:30%;top:47%;width:8%;height:4%;" onclick="openRoomCard('Hall')" aria-label="Hall"></button><button type="button" class="room-hotspot" style="left:50.5%;top:47.5%;width:14%;height:4%;" onclick="openRoomCard('Dining Room')" aria-label="Dining Room"></button><button type="button" class="room-hotspot" style="left:18%;top:65.5%;width:15%;height:4%;" onclick="openRoomCard('Front Bedroom')" aria-label="Front Bedroom"></button><button type="button" class="room-hotspot" style="left:50.5%;top:68%;width:14%;height:4%;" onclick="openRoomCard('Living Room')" aria-label="Living Room"></button>
 </div>
 </div><div class="floorplan-panel" id="floor-panel-3"><p class="floorplan-blurb">A second family room with its own fireplace, opening onto the view deck.</p>
 <div class="floorplan-image-wrap">
@@ -488,6 +503,9 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
 <button type="button" class="room-hotspot" style="left:40%;top:48%;width:20%;height:10%;" onclick="openRoomCard('Garage')" aria-label="Garage"></button>
 </div>
 </div></div>
+    <p class="floorplan-disclaimer">These sketches are drawn for perspective, to help you get a feel for how the
+    rooms connect, not for exact measurements. Treat every dimension shown as approximate, and confirm anything
+    you're relying on with a tape measure during your tour.</p>
   </div>
 </section>
 
@@ -497,13 +515,23 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
     <div class="kicker reveal">The Home</div>
     <h2 class="reveal">A Closer Look, Room by Room</h2>
     <p class="lede reveal">Click any photo to see it larger, with more detail on what you're looking at.</p>
-    <div class="gallery-group reveal"><h3>Exterior & Curb Appeal</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(0)"><img src="exterior-front-01.jpg" alt="Craftsman facade, terraced front garden" loading="lazy"><figcaption>Craftsman facade, terraced front garden</figcaption></figure><figure class="clickable" onclick="openLightbox(1)"><img src="exterior-front-02.jpg" alt="Side profile & chimney" loading="lazy"><figcaption>Side profile & chimney</figcaption></figure><figure class="clickable" onclick="openLightbox(2)"><img src="porch-entry-01.jpg" alt="Covered front porch and entry at 825" loading="lazy"><figcaption>Covered front porch and entry at 825</figcaption></figure><figure class="clickable" onclick="openLightbox(3)"><img src="garage-shop-exterior-01.jpg" alt="Attached garage & shop" loading="lazy"><figcaption>Attached garage & shop</figcaption></figure></div></div>
+    <div class="floorplan-tabs reveal" style="margin-top:10px;">
+      <button class="floorplan-tab active" data-view="room" onclick="switchGalleryView('room')">By Room</button>
+      <button class="floorplan-tab" data-view="floor" onclick="switchGalleryView('floor')">By Floor</button>
+    </div>
+    <div id="gallery-view-room" class="gallery-view active" style="margin-top:12px;"><div class="gallery-group reveal"><h3>Exterior & Curb Appeal</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(0)"><img src="exterior-front-01.jpg" alt="Craftsman facade, terraced front garden" loading="lazy"><figcaption>Craftsman facade, terraced front garden</figcaption></figure><figure class="clickable" onclick="openLightbox(1)"><img src="exterior-front-02.jpg" alt="Side profile & chimney" loading="lazy"><figcaption>Side profile & chimney</figcaption></figure><figure class="clickable" onclick="openLightbox(2)"><img src="porch-entry-01.jpg" alt="Covered front porch and entry at 825" loading="lazy"><figcaption>Covered front porch and entry at 825</figcaption></figure><figure class="clickable" onclick="openLightbox(3)"><img src="garage-shop-exterior-01.jpg" alt="Attached garage & shop" loading="lazy"><figcaption>Attached garage & shop</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Main Living Spaces</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(4)"><img src="living-room-main-01.jpg" alt="Living room - fireplace & custom built-ins" loading="lazy"><figcaption>Living room - fireplace & custom built-ins</figcaption></figure><figure class="clickable" onclick="openLightbox(5)"><img src="dining-room-01.jpg" alt="Dining room" loading="lazy"><figcaption>Dining room</figcaption></figure><figure class="clickable" onclick="openLightbox(6)"><img src="kitchen-01.jpg" alt="Kitchen" loading="lazy"><figcaption>Kitchen</figcaption></figure><figure class="clickable" onclick="openLightbox(7)"><img src="kitchen-02.jpg" alt="Kitchen, second angle" loading="lazy"><figcaption>Kitchen, second angle</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Upper Family Room & Views</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(8)"><img src="family-room-01.jpg" alt="Family room - fireplace & French doors to deck" loading="lazy"><figcaption>Family room - fireplace & French doors to deck</figcaption></figure><figure class="clickable" onclick="openLightbox(9)"><img src="family-room-02.jpg" alt="Family room, second angle" loading="lazy"><figcaption>Family room, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(10)"><img src="deck-view-01.jpg" alt="Deck - city & mountain views" loading="lazy"><figcaption>Deck - city & mountain views</figcaption></figure><figure class="clickable" onclick="openLightbox(11)"><img src="view-skyline-01.jpg" alt="The view from upstairs" loading="lazy"><figcaption>The view from upstairs</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Bedrooms, Office & Baths</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(12)"><img src="primary-suite-01.jpg" alt="Primary suite - vaulted ceiling" loading="lazy"><figcaption>Primary suite - vaulted ceiling</figcaption></figure><figure class="clickable" onclick="openLightbox(13)"><img src="primary-suite-02.jpg" alt="Primary suite, second angle" loading="lazy"><figcaption>Primary suite, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(14)"><img src="bedroom-secondary-01.jpg" alt="Second bedroom" loading="lazy"><figcaption>Second bedroom</figcaption></figure><figure class="clickable" onclick="openLightbox(15)"><img src="office-den-01.jpg" alt="Office / den" loading="lazy"><figcaption>Office / den</figcaption></figure><figure class="clickable" onclick="openLightbox(16)"><img src="bathroom-01.jpg" alt="Full bathroom" loading="lazy"><figcaption>Full bathroom</figcaption></figure><figure class="clickable" onclick="openLightbox(17)"><img src="bathroom-vanity-02.jpg" alt="Bath - vanity & skylight" loading="lazy"><figcaption>Bath - vanity & skylight</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Lower Level & Shop</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(18)"><img src="lower-level-rec-01.jpg" alt="Lower level rec area" loading="lazy"><figcaption>Lower level rec area</figcaption></figure><figure class="clickable" onclick="openLightbox(19)"><img src="lower-bedroom-01.jpg" alt="Lower-level guest room" loading="lazy"><figcaption>Lower-level guest room</figcaption></figure><figure class="clickable" onclick="openLightbox(20)"><img src="laundry-utility-01.jpg" alt="Laundry / utility" loading="lazy"><figcaption>Laundry / utility</figcaption></figure><figure class="clickable" onclick="openLightbox(21)"><img src="shop-01.jpg" alt="Dedicated shop" loading="lazy"><figcaption>Dedicated shop</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Outdoor</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(22)"><img src="garden-01.jpg" alt="Secluded garden, out back" loading="lazy"><figcaption>Secluded garden, out back</figcaption></figure><figure class="clickable" onclick="openLightbox(23)"><img src="shop-02.jpg" alt="Shop workbench detail" loading="lazy"><figcaption>Shop workbench detail</figcaption></figure></div></div>
-<div class="gallery-group reveal"><h3>More On the Way</h3><div class="gallery-grid"><div class="soon">+ DRIVEWAY PHOTO<br>COMING SOON</div><div class="soon">+ WINE CELLAR<br>COMING SOON</div><div class="soon">+ GARAGE<br>COMING SOON</div><div class="soon">+ MORE PHOTOS<br>COMING SOON</div></div></div>
+<div class="gallery-group reveal"><h3>More On the Way</h3><div class="gallery-grid"><div class="soon">+ DRIVEWAY PHOTO<br>COMING SOON</div><div class="soon">+ WINE CELLAR<br>COMING SOON</div><div class="soon">+ GARAGE<br>COMING SOON</div><div class="soon">+ MORE PHOTOS<br>COMING SOON</div></div></div></div>
+    <div id="gallery-view-floor" class="gallery-view" style="margin-top:12px;"><div class="gallery-group reveal"><h3>Floor 1 - Lower Level</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(18)"><img src="lower-level-rec-01.jpg" alt="Lower level rec area" loading="lazy"><figcaption>Lower level rec area</figcaption></figure><figure class="clickable" onclick="openLightbox(15)"><img src="office-den-01.jpg" alt="Office / den" loading="lazy"><figcaption>Office / den</figcaption></figure><figure class="clickable" onclick="openLightbox(19)"><img src="lower-bedroom-01.jpg" alt="Lower-level guest room" loading="lazy"><figcaption>Lower-level guest room</figcaption></figure><figure class="clickable" onclick="openLightbox(20)"><img src="laundry-utility-01.jpg" alt="Laundry / utility" loading="lazy"><figcaption>Laundry / utility</figcaption></figure></div></div>
+<div class="gallery-group reveal"><h3>Floor 2 - Main Level</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(4)"><img src="living-room-main-01.jpg" alt="Living room - fireplace & custom built-ins" loading="lazy"><figcaption>Living room - fireplace & custom built-ins</figcaption></figure><figure class="clickable" onclick="openLightbox(5)"><img src="dining-room-01.jpg" alt="Dining room" loading="lazy"><figcaption>Dining room</figcaption></figure><figure class="clickable" onclick="openLightbox(6)"><img src="kitchen-01.jpg" alt="Kitchen" loading="lazy"><figcaption>Kitchen</figcaption></figure><figure class="clickable" onclick="openLightbox(7)"><img src="kitchen-02.jpg" alt="Kitchen, second angle" loading="lazy"><figcaption>Kitchen, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(14)"><img src="bedroom-secondary-01.jpg" alt="Second bedroom" loading="lazy"><figcaption>Second bedroom</figcaption></figure><figure class="clickable" onclick="openLightbox(16)"><img src="bathroom-01.jpg" alt="Full bathroom" loading="lazy"><figcaption>Full bathroom</figcaption></figure></div></div>
+<div class="gallery-group reveal"><h3>Floor 3 - Upper Level</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(8)"><img src="family-room-01.jpg" alt="Family room - fireplace & French doors to deck" loading="lazy"><figcaption>Family room - fireplace & French doors to deck</figcaption></figure><figure class="clickable" onclick="openLightbox(9)"><img src="family-room-02.jpg" alt="Family room, second angle" loading="lazy"><figcaption>Family room, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(10)"><img src="deck-view-01.jpg" alt="Deck - city & mountain views" loading="lazy"><figcaption>Deck - city & mountain views</figcaption></figure><figure class="clickable" onclick="openLightbox(11)"><img src="view-skyline-01.jpg" alt="The view from upstairs" loading="lazy"><figcaption>The view from upstairs</figcaption></figure></div></div>
+<div class="gallery-group reveal"><h3>Floor 4 - Primary Level</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(12)"><img src="primary-suite-01.jpg" alt="Primary suite - vaulted ceiling" loading="lazy"><figcaption>Primary suite - vaulted ceiling</figcaption></figure><figure class="clickable" onclick="openLightbox(13)"><img src="primary-suite-02.jpg" alt="Primary suite, second angle" loading="lazy"><figcaption>Primary suite, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(17)"><img src="bathroom-vanity-02.jpg" alt="Bath - vanity & skylight" loading="lazy"><figcaption>Bath - vanity & skylight</figcaption></figure></div></div>
+<div class="gallery-group reveal"><h3>Garage</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(3)"><img src="garage-shop-exterior-01.jpg" alt="Attached garage & shop" loading="lazy"><figcaption>Attached garage & shop</figcaption></figure><figure class="clickable" onclick="openLightbox(21)"><img src="shop-01.jpg" alt="Dedicated shop" loading="lazy"><figcaption>Dedicated shop</figcaption></figure><figure class="clickable" onclick="openLightbox(23)"><img src="shop-02.jpg" alt="Shop workbench detail" loading="lazy"><figcaption>Shop workbench detail</figcaption></figure></div></div>
+<div class="gallery-group reveal"><h3>Exterior & Grounds</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(0)"><img src="exterior-front-01.jpg" alt="Craftsman facade, terraced front garden" loading="lazy"><figcaption>Craftsman facade, terraced front garden</figcaption></figure><figure class="clickable" onclick="openLightbox(1)"><img src="exterior-front-02.jpg" alt="Side profile & chimney" loading="lazy"><figcaption>Side profile & chimney</figcaption></figure><figure class="clickable" onclick="openLightbox(2)"><img src="porch-entry-01.jpg" alt="Covered front porch and entry at 825" loading="lazy"><figcaption>Covered front porch and entry at 825</figcaption></figure><figure class="clickable" onclick="openLightbox(22)"><img src="garden-01.jpg" alt="Secluded garden, out back" loading="lazy"><figcaption>Secluded garden, out back</figcaption></figure></div></div></div>
   </div>
 </section>
 
@@ -697,13 +725,18 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
     <h3 id="room-modal-title">Room</h3>
     <div class="rm-grid">
       <div class="rm-placeholder">QR code for this room<br>coming soon</div>
-      <div class="rm-placeholder">Photos of this room<br>coming soon</div>
+      <a class="rm-photos-link" href="#gallery" onclick="closeRoomCard()">
+        <span>See this room's photos</span>
+        <span class="rm-photos-arrow">&#8595;</span>
+      </a>
     </div>
   </div>
 </div>
 
 
-<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
 
 
 <script>
@@ -741,11 +774,46 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
   if (e.target === this) closeLightbox();
 });
 
+// --- Gallery view toggle ---
+function switchGalleryView(view) {
+  document.querySelectorAll('#gallery .floorplan-tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
+  document.getElementById('gallery-view-room').classList.toggle('active', view === 'room');
+  document.getElementById('gallery-view-floor').classList.toggle('active', view === 'floor');
+}
+
 // --- Floor plan tabs ---
 function switchFloor(num) {
-  document.querySelectorAll('.floorplan-tab').forEach(t => t.classList.toggle('active', t.dataset.floor === num));
+  document.querySelectorAll('#floorplan .floorplan-tab').forEach(t => t.classList.toggle('active', t.dataset.floor === num));
   document.querySelectorAll('.floorplan-panel').forEach(p => p.classList.toggle('active', p.id === 'floor-panel-' + num));
 }
+
+// --- Floor plan swipe navigation ---
+(function() {
+  var order = ["1", "2", "3", "4", "garage"];
+  var panelsWrap = document.querySelector('.floorplan-panels');
+  if (!panelsWrap) return;
+  var startX = 0, startY = 0, tracking = false;
+  panelsWrap.addEventListener('touchstart', function(e) {
+    if (e.touches.length !== 1) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    tracking = true;
+  }, { passive: true });
+  panelsWrap.addEventListener('touchend', function(e) {
+    if (!tracking) return;
+    tracking = false;
+    var dx = e.changedTouches[0].clientX - startX;
+    var dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    var activeTab = document.querySelector('.floorplan-tab.active');
+    if (!activeTab) return;
+    var idx = order.indexOf(activeTab.dataset.floor);
+    if (idx === -1) return;
+    var nextIdx = dx < 0 ? (idx + 1) % order.length : (idx - 1 + order.length) % order.length;
+    switchFloor(order[nextIdx]);
+  }, { passive: true });
+})();
+
 (function() {
   const params = new URLSearchParams(window.location.search);
   const floor = params.get('floor');
