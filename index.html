@@ -44,11 +44,14 @@ a { color: inherit; }
 .nav-right { display: flex; align-items: center; gap: 26px; }
 .nav ul { list-style: none; display: flex; gap: 22px; }
 .nav a { color: var(--light); text-decoration: none; font-size: 12px; letter-spacing: 0.07em; font-weight: 600;
-  opacity: 0.88; transition: opacity .2s ease; }
+  opacity: 0.88; transition: opacity .2s, color .2s; }
 .nav a:hover { opacity: 1; }
-.nav-contact { display: flex; align-items: center; gap: 8px; white-space: nowrap; padding-left: 22px; border-left: 1px solid rgba(255,255,255,0.15); }
-.nav-contact a { color: var(--gold); font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; opacity: 1; }
-.nav-contact a:hover { opacity: 0.8; }
+.nav ul a { color: #9FBAB2; }
+.nav ul a:hover { color: var(--light); }
+.nav-contact { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; white-space: nowrap; padding-left: 22px; border-left: 1px solid rgba(255,255,255,0.15); }
+.nav-contact-info { display: flex; align-items: center; gap: 8px; }
+.nav-contact-info a { color: var(--light); font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; opacity: 1; }
+.nav-contact-info a:hover { opacity: 0.8; }
 .nav-contact .sep { color: rgba(255,255,255,0.3); font-size: 11px; }
 
 /* BUTTONS */
@@ -136,6 +139,12 @@ a { color: inherit; }
 .floorplan-tab:hover { border-color: var(--gold); color: var(--dark-text); }
 .floorplan-tab.active { background: var(--bg-dark); color: var(--light); border-color: var(--bg-dark); }
 .floorplan-panels { margin-top: 26px; }
+.gallery-view-toggle { display: flex; align-items: center; gap: 14px; margin: 18px 0 26px; padding-bottom: 26px;
+  border-bottom: 1px solid #ECE7DC; flex-wrap: wrap; }
+.gallery-view-toggle .gallery-view-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.gallery-view-toggle .floorplan-tab { padding: 13px 28px; font-size: 14.5px; border-width: 2px; border-radius: 999px; }
+.gallery-view-toggle .floorplan-tab.active { box-shadow: 0 6px 16px rgba(31,61,43,0.22); border-color: var(--gold); }
+.gallery-view-toggle .floorplan-tab:hover { border-color: var(--gold); }
 .floorplan-panel { display: none; }
 .floorplan-panel.active { display: block; }
 .floorplan-rooms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -174,7 +183,8 @@ a { color: inherit; }
 
 /* GALLERY */
 .gallery-group { margin-bottom: 44px; }
-.gallery-group h3 { font-size: 13px; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
+.gallery-group h3 { display: inline-block; font-size: 14px; letter-spacing: 0.1em; color: var(--dark-text); text-transform: uppercase;
+  margin-bottom: 20px; padding-bottom: 8px; font-weight: 800; border-bottom: 2px solid var(--gold); }
 .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .gallery-grid figure { border-radius: 12px; overflow: hidden; background: var(--photo-fill); cursor: pointer; position: relative;
   box-shadow: var(--shadow-sm); transition: box-shadow .25s ease; }
@@ -192,7 +202,16 @@ a { color: inherit; }
 /* DETAILS */
 .details-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 52px; }
 .details-grid .desc p { margin-bottom: 16px; font-size: 15.5px; color: var(--dark-text); }
-.spec-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; background: var(--light); border-radius: var(--radius); padding: 28px; }
+.spec-panel { background: var(--light); border-radius: var(--radius); padding: 28px; }
+.spec-panel-title { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 500;
+  font-size: 20px; color: var(--bg-dark); margin-bottom: 18px; }
+.spec-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 22px; }
+.spec-row { display: flex; align-items: center; gap: 11px; }
+.spec-icon { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; background: rgba(201,169,106,0.16);
+  color: var(--gold); display: flex; align-items: center; justify-content: center; }
+.spec-icon svg { width: 15px; height: 15px; }
+.spec-row > div { font-size: 13px; color: var(--dark-text); }
+.spec-row .k { color: var(--accent); font-weight: 700; display: block; font-size: 11px; letter-spacing: 0.07em; margin-bottom: 3px; }
 .mech-updates { margin: 22px 0; }
 .mech-updates h4 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; font-weight: 700; }
 .mech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -202,8 +221,6 @@ a { color: inherit; }
   letter-spacing: 0.04em; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
 .mech-item p { margin: 8px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.55; }
 @media (max-width: 620px) { .mech-grid { grid-template-columns: 1fr; } }
-.spec-list div { font-size: 13px; }
-.spec-list .k { color: var(--accent); font-weight: 700; display: block; font-size: 11px; letter-spacing: 0.07em; margin-bottom: 3px; }
 
 /* AGENT */
 .agent-grid { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: start; }
@@ -221,7 +238,9 @@ a { color: inherit; }
 .tl-item h4 { font-size: 15.5px; margin: 5px 0 5px; color: var(--bg-dark); }
 .tl-countdown { display: inline-block; margin-left: 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--bg-dark); background: rgba(201,169,106,0.2); border: 1px solid var(--gold);
-  border-radius: 999px; padding: 2px 10px; vertical-align: middle; }
+  border-radius: 999px; padding: 2px 10px; vertical-align: middle; animation: countdownPulse 3.2s ease-in-out infinite; }
+@keyframes countdownPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+@media (prefers-reduced-motion: reduce) { .tl-countdown { animation: none; } }
 .tl-item p { font-size: 13.5px; color: var(--muted); }
 
 /* FOOTER */
@@ -262,7 +281,8 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
 .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 .back-to-top:hover { background: var(--gold); }
 .back-to-top:hover svg { stroke: var(--bg-dark); }
-.nav-top-link { color: var(--gold) !important; font-weight: 700; }
+.nav-top-link { display: block; color: var(--gold) !important; font-weight: 600; letter-spacing: 0.02em; font-size: 10.5px; text-transform: uppercase; }
+.nav-top-link:hover { opacity: 0.8; }
 
 /* LIGHTBOX */
 .lightbox { position: fixed; inset: 0; background: rgba(10,14,12,0.88); backdrop-filter: blur(6px); z-index: 200;
@@ -303,8 +323,8 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
   .agent-grid .agent-photo { height: 340px; object-position: 50% 5%; }
   .lightbox-inner { grid-template-columns: 1fr; overflow-y: auto; }
   .nav ul { display: none; }
-  .nav-contact { padding-left: 0; border-left: none; gap: 6px; }
-  .nav-contact a { font-size: 10.5px; }
+  .nav-contact { padding-left: 0; border-left: none; gap: 4px; align-items: flex-end; }
+  .nav-contact-info a { font-size: 10.5px; }
   .nav-contact .email-link { display: none; }
   .nav-contact .sep { display: none; }
   .inspection-banner .wrap { flex-direction: column; align-items: flex-start; }
@@ -336,11 +356,12 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-contact">
-        <a href="tel:+14256963684">425-696-DOUG</a>
-        <span class="sep">&middot;</span>
-        <a class="email-link" href="mailto:Doug@Tour825.com">Doug@Tour825.com</a>
-        <span class="sep">&middot;</span>
-        <a class="nav-top-link" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; Back to Top</a>
+        <div class="nav-contact-info">
+          <a href="tel:+14256963684">425-696-DOUG</a>
+          <span class="sep">&middot;</span>
+          <a class="email-link" href="mailto:Doug@Tour825.com">Doug@Tour825.com</a>
+        </div>
+        <a class="nav-top-link" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; Back to Start</a>
       </div>
     </div>
   </div>
@@ -480,27 +501,27 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
     <div class="floorplan-panels"><div class="floorplan-panel active" id="floor-panel-1"><p class="floorplan-blurb">Partially finished bonus space: rec room, office, wine cellar, and the shop entry.</p>
 <div class="floorplan-image-wrap">
 <img src="floorplan-1-lower-level-v2.png" alt="Lower Level floor plan sketch">
-<button type="button" class="room-hotspot" style="left:16%;top:12.5%;width:12%;height:5%;" onclick="openRoomCard('Entry')" aria-label="Entry"></button><button type="button" class="room-hotspot" style="left:30.5%;top:31.5%;width:25%;height:5%;" onclick="openRoomCard('Recreation Room')" aria-label="Recreation Room"></button><button type="button" class="room-hotspot" style="left:18.5%;top:55%;width:18%;height:5%;" onclick="openRoomCard('Workroom')" aria-label="Workroom"></button><button type="button" class="room-hotspot" style="left:47.5%;top:69%;width:14%;height:5%;" onclick="openRoomCard('Utility')" aria-label="Utility"></button><button type="button" class="room-hotspot" style="left:18%;top:75%;width:18%;height:5%;" onclick="openRoomCard('Office')" aria-label="Office"></button><button type="button" class="room-hotspot" style="left:72%;top:73%;width:16%;height:8%;" onclick="openRoomCard('Wine Cellar')" aria-label="Wine Cellar"></button>
+<button type="button" class="room-hotspot" style="left:16%;top:12.5%;width:12%;height:5%;" onclick="openRoomCard('Entry', 'Floor 1 · Lower Level')" aria-label="Entry"></button><button type="button" class="room-hotspot" style="left:30.5%;top:31.5%;width:25%;height:5%;" onclick="openRoomCard('Recreation Room', 'Floor 1 · Lower Level')" aria-label="Recreation Room"></button><button type="button" class="room-hotspot" style="left:18.5%;top:55%;width:18%;height:5%;" onclick="openRoomCard('Workroom', 'Floor 1 · Lower Level')" aria-label="Workroom"></button><button type="button" class="room-hotspot" style="left:47.5%;top:69%;width:14%;height:5%;" onclick="openRoomCard('Utility', 'Floor 1 · Lower Level')" aria-label="Utility"></button><button type="button" class="room-hotspot" style="left:18%;top:75%;width:18%;height:5%;" onclick="openRoomCard('Office', 'Floor 1 · Lower Level')" aria-label="Office"></button><button type="button" class="room-hotspot" style="left:72%;top:73%;width:16%;height:8%;" onclick="openRoomCard('Wine Cellar', 'Floor 1 · Lower Level')" aria-label="Wine Cellar"></button>
 </div>
 </div><div class="floorplan-panel" id="floor-panel-2"><p class="floorplan-blurb">Living room, dining room, kitchen, two bedrooms, a full bath, and a hall: the level you enter on.</p>
 <div class="floorplan-image-wrap">
 <img src="floorplan-2-main-level.png" alt="Main Level floor plan sketch">
-<button type="button" class="room-hotspot" style="left:17.5%;top:25.5%;width:15%;height:4%;" onclick="openRoomCard('Back Bedroom')" aria-label="Back Bedroom"></button><button type="button" class="room-hotspot" style="left:50.5%;top:27%;width:14%;height:4%;" onclick="openRoomCard('Kitchen')" aria-label="Kitchen"></button><button type="button" class="room-hotspot" style="left:18%;top:47%;width:13%;height:4%;" onclick="openRoomCard('Full Bath')" aria-label="Full Bath"></button><button type="button" class="room-hotspot" style="left:30%;top:47%;width:8%;height:4%;" onclick="openRoomCard('Hall')" aria-label="Hall"></button><button type="button" class="room-hotspot" style="left:50.5%;top:47.5%;width:14%;height:4%;" onclick="openRoomCard('Dining Room')" aria-label="Dining Room"></button><button type="button" class="room-hotspot" style="left:18%;top:65.5%;width:15%;height:4%;" onclick="openRoomCard('Front Bedroom')" aria-label="Front Bedroom"></button><button type="button" class="room-hotspot" style="left:50.5%;top:68%;width:14%;height:4%;" onclick="openRoomCard('Living Room')" aria-label="Living Room"></button>
+<button type="button" class="room-hotspot" style="left:17.5%;top:25.5%;width:15%;height:4%;" onclick="openRoomCard('Back Bedroom', 'Floor 2 · Main Level')" aria-label="Back Bedroom"></button><button type="button" class="room-hotspot" style="left:50.5%;top:27%;width:14%;height:4%;" onclick="openRoomCard('Kitchen', 'Floor 2 · Main Level')" aria-label="Kitchen"></button><button type="button" class="room-hotspot" style="left:18%;top:47%;width:13%;height:4%;" onclick="openRoomCard('Full Bath', 'Floor 2 · Main Level')" aria-label="Full Bath"></button><button type="button" class="room-hotspot" style="left:30%;top:47%;width:8%;height:4%;" onclick="openRoomCard('Hall', 'Floor 2 · Main Level')" aria-label="Hall"></button><button type="button" class="room-hotspot" style="left:50.5%;top:47.5%;width:14%;height:4%;" onclick="openRoomCard('Dining Room', 'Floor 2 · Main Level')" aria-label="Dining Room"></button><button type="button" class="room-hotspot" style="left:18%;top:65.5%;width:15%;height:4%;" onclick="openRoomCard('Front Bedroom', 'Floor 2 · Main Level')" aria-label="Front Bedroom"></button><button type="button" class="room-hotspot" style="left:50.5%;top:68%;width:14%;height:4%;" onclick="openRoomCard('Living Room', 'Floor 2 · Main Level')" aria-label="Living Room"></button>
 </div>
 </div><div class="floorplan-panel" id="floor-panel-3"><p class="floorplan-blurb">A second family room with its own fireplace, opening onto the view deck.</p>
 <div class="floorplan-image-wrap">
 <img src="floorplan-3-upper-level.png" alt="Upper Level floor plan sketch">
-<button type="button" class="room-hotspot" style="left:52%;top:17%;width:13%;height:5%;" onclick="openRoomCard('Balcony')" aria-label="Balcony"></button><button type="button" class="room-hotspot" style="left:49.5%;top:51.5%;width:19%;height:5%;" onclick="openRoomCard('Family Room')" aria-label="Family Room"></button>
+<button type="button" class="room-hotspot" style="left:52%;top:17%;width:13%;height:5%;" onclick="openRoomCard('Balcony', 'Floor 3 · Upper Level')" aria-label="Balcony"></button><button type="button" class="room-hotspot" style="left:49.5%;top:51.5%;width:19%;height:5%;" onclick="openRoomCard('Family Room', 'Floor 3 · Upper Level')" aria-label="Family Room"></button>
 </div>
 </div><div class="floorplan-panel" id="floor-panel-4"><p class="floorplan-blurb">The vaulted primary suite on its own floor, with an exposed beam and a wall of windows.</p>
 <div class="floorplan-image-wrap">
 <img src="floorplan-4-primary-level.png" alt="Primary Level floor plan sketch">
-<button type="button" class="room-hotspot" style="left:38.5%;top:34%;width:27%;height:5%;" onclick="openRoomCard('Primary Bedroom')" aria-label="Primary Bedroom"></button><button type="button" class="room-hotspot" style="left:32%;top:70%;width:9%;height:4%;" onclick="openRoomCard('Hall')" aria-label="Hall"></button><button type="button" class="room-hotspot" style="left:50.5%;top:73%;width:14%;height:4%;" onclick="openRoomCard('Full Bath')" aria-label="Full Bath"></button>
+<button type="button" class="room-hotspot" style="left:38.5%;top:34%;width:27%;height:5%;" onclick="openRoomCard('Primary Bedroom', 'Floor 4 · Primary Level')" aria-label="Primary Bedroom"></button><button type="button" class="room-hotspot" style="left:32%;top:70%;width:9%;height:4%;" onclick="openRoomCard('Hall', 'Floor 4 · Primary Level')" aria-label="Hall"></button><button type="button" class="room-hotspot" style="left:50.5%;top:73%;width:14%;height:4%;" onclick="openRoomCard('Full Bath', 'Floor 4 · Primary Level')" aria-label="Full Bath"></button>
 </div>
 </div><div class="floorplan-panel" id="floor-panel-garage"><p class="floorplan-blurb">Attached two-car garage with a dedicated workbench area off the back.</p>
 <div class="floorplan-image-wrap">
 <img src="floorplan-garage.png" alt="Garage floor plan sketch">
-<button type="button" class="room-hotspot" style="left:40%;top:48%;width:20%;height:10%;" onclick="openRoomCard('Garage')" aria-label="Garage"></button>
+<button type="button" class="room-hotspot" style="left:40%;top:48%;width:20%;height:10%;" onclick="openRoomCard('Garage', 'Garage')" aria-label="Garage"></button>
 </div>
 </div></div>
     <p class="floorplan-disclaimer">These sketches are drawn for perspective, to help you get a feel for how the
@@ -515,18 +536,21 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
     <div class="kicker reveal">The Home</div>
     <h2 class="reveal">A Closer Look, Room by Room</h2>
     <p class="lede reveal">Click any photo to see it larger, with more detail on what you're looking at.</p>
-    <div class="floorplan-tabs reveal" style="margin-top:10px;">
-      <button class="floorplan-tab active" data-view="room" onclick="switchGalleryView('room')">By Room</button>
-      <button class="floorplan-tab" data-view="floor" onclick="switchGalleryView('floor')">By Floor</button>
+    <div class="gallery-view-toggle reveal">
+      <span class="gallery-view-label">Browse by</span>
+      <div class="floorplan-tabs">
+        <button class="floorplan-tab active" data-view="room" onclick="switchGalleryView('room')">By Room</button>
+        <button class="floorplan-tab" data-view="floor" onclick="switchGalleryView('floor')">By Floor</button>
+      </div>
     </div>
-    <div id="gallery-view-room" class="gallery-view active" style="margin-top:12px;"><div class="gallery-group reveal"><h3>Exterior & Curb Appeal</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(0)"><img src="exterior-front-01.jpg" alt="Craftsman facade, terraced front garden" loading="lazy"><figcaption>Craftsman facade, terraced front garden</figcaption></figure><figure class="clickable" onclick="openLightbox(1)"><img src="exterior-front-02.jpg" alt="Side profile & chimney" loading="lazy"><figcaption>Side profile & chimney</figcaption></figure><figure class="clickable" onclick="openLightbox(2)"><img src="porch-entry-01.jpg" alt="Covered front porch and entry at 825" loading="lazy"><figcaption>Covered front porch and entry at 825</figcaption></figure><figure class="clickable" onclick="openLightbox(3)"><img src="garage-shop-exterior-01.jpg" alt="Attached garage & shop" loading="lazy"><figcaption>Attached garage & shop</figcaption></figure></div></div>
+    <div id="gallery-view-room" class="gallery-view active"><div class="gallery-group reveal"><h3>Exterior & Curb Appeal</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(0)"><img src="exterior-front-01.jpg" alt="Craftsman facade, terraced front garden" loading="lazy"><figcaption>Craftsman facade, terraced front garden</figcaption></figure><figure class="clickable" onclick="openLightbox(1)"><img src="exterior-front-02.jpg" alt="Side profile & chimney" loading="lazy"><figcaption>Side profile & chimney</figcaption></figure><figure class="clickable" onclick="openLightbox(2)"><img src="porch-entry-01.jpg" alt="Covered front porch and entry at 825" loading="lazy"><figcaption>Covered front porch and entry at 825</figcaption></figure><figure class="clickable" onclick="openLightbox(3)"><img src="garage-shop-exterior-01.jpg" alt="Attached garage & shop" loading="lazy"><figcaption>Attached garage & shop</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Main Living Spaces</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(4)"><img src="living-room-main-01.jpg" alt="Living room - fireplace & custom built-ins" loading="lazy"><figcaption>Living room - fireplace & custom built-ins</figcaption></figure><figure class="clickable" onclick="openLightbox(5)"><img src="dining-room-01.jpg" alt="Dining room" loading="lazy"><figcaption>Dining room</figcaption></figure><figure class="clickable" onclick="openLightbox(6)"><img src="kitchen-01.jpg" alt="Kitchen" loading="lazy"><figcaption>Kitchen</figcaption></figure><figure class="clickable" onclick="openLightbox(7)"><img src="kitchen-02.jpg" alt="Kitchen, second angle" loading="lazy"><figcaption>Kitchen, second angle</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Upper Family Room & Views</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(8)"><img src="family-room-01.jpg" alt="Family room - fireplace & French doors to deck" loading="lazy"><figcaption>Family room - fireplace & French doors to deck</figcaption></figure><figure class="clickable" onclick="openLightbox(9)"><img src="family-room-02.jpg" alt="Family room, second angle" loading="lazy"><figcaption>Family room, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(10)"><img src="deck-view-01.jpg" alt="Deck - city & mountain views" loading="lazy"><figcaption>Deck - city & mountain views</figcaption></figure><figure class="clickable" onclick="openLightbox(11)"><img src="view-skyline-01.jpg" alt="The view from upstairs" loading="lazy"><figcaption>The view from upstairs</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Bedrooms, Office & Baths</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(12)"><img src="primary-suite-01.jpg" alt="Primary suite - vaulted ceiling" loading="lazy"><figcaption>Primary suite - vaulted ceiling</figcaption></figure><figure class="clickable" onclick="openLightbox(13)"><img src="primary-suite-02.jpg" alt="Primary suite, second angle" loading="lazy"><figcaption>Primary suite, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(14)"><img src="bedroom-secondary-01.jpg" alt="Second bedroom" loading="lazy"><figcaption>Second bedroom</figcaption></figure><figure class="clickable" onclick="openLightbox(15)"><img src="office-den-01.jpg" alt="Office / den" loading="lazy"><figcaption>Office / den</figcaption></figure><figure class="clickable" onclick="openLightbox(16)"><img src="bathroom-01.jpg" alt="Full bathroom" loading="lazy"><figcaption>Full bathroom</figcaption></figure><figure class="clickable" onclick="openLightbox(17)"><img src="bathroom-vanity-02.jpg" alt="Bath - vanity & skylight" loading="lazy"><figcaption>Bath - vanity & skylight</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Lower Level & Shop</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(18)"><img src="lower-level-rec-01.jpg" alt="Lower level rec area" loading="lazy"><figcaption>Lower level rec area</figcaption></figure><figure class="clickable" onclick="openLightbox(19)"><img src="lower-bedroom-01.jpg" alt="Lower-level guest room" loading="lazy"><figcaption>Lower-level guest room</figcaption></figure><figure class="clickable" onclick="openLightbox(20)"><img src="laundry-utility-01.jpg" alt="Laundry / utility" loading="lazy"><figcaption>Laundry / utility</figcaption></figure><figure class="clickable" onclick="openLightbox(21)"><img src="shop-01.jpg" alt="Dedicated shop" loading="lazy"><figcaption>Dedicated shop</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Outdoor</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(22)"><img src="garden-01.jpg" alt="Secluded garden, out back" loading="lazy"><figcaption>Secluded garden, out back</figcaption></figure><figure class="clickable" onclick="openLightbox(23)"><img src="shop-02.jpg" alt="Shop workbench detail" loading="lazy"><figcaption>Shop workbench detail</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>More On the Way</h3><div class="gallery-grid"><div class="soon">+ DRIVEWAY PHOTO<br>COMING SOON</div><div class="soon">+ WINE CELLAR<br>COMING SOON</div><div class="soon">+ GARAGE<br>COMING SOON</div><div class="soon">+ MORE PHOTOS<br>COMING SOON</div></div></div></div>
-    <div id="gallery-view-floor" class="gallery-view" style="margin-top:12px;"><div class="gallery-group reveal"><h3>Floor 1 - Lower Level</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(18)"><img src="lower-level-rec-01.jpg" alt="Lower level rec area" loading="lazy"><figcaption>Lower level rec area</figcaption></figure><figure class="clickable" onclick="openLightbox(15)"><img src="office-den-01.jpg" alt="Office / den" loading="lazy"><figcaption>Office / den</figcaption></figure><figure class="clickable" onclick="openLightbox(19)"><img src="lower-bedroom-01.jpg" alt="Lower-level guest room" loading="lazy"><figcaption>Lower-level guest room</figcaption></figure><figure class="clickable" onclick="openLightbox(20)"><img src="laundry-utility-01.jpg" alt="Laundry / utility" loading="lazy"><figcaption>Laundry / utility</figcaption></figure></div></div>
+    <div id="gallery-view-floor" class="gallery-view"><div class="gallery-group reveal"><h3>Floor 1 - Lower Level</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(18)"><img src="lower-level-rec-01.jpg" alt="Lower level rec area" loading="lazy"><figcaption>Lower level rec area</figcaption></figure><figure class="clickable" onclick="openLightbox(15)"><img src="office-den-01.jpg" alt="Office / den" loading="lazy"><figcaption>Office / den</figcaption></figure><figure class="clickable" onclick="openLightbox(19)"><img src="lower-bedroom-01.jpg" alt="Lower-level guest room" loading="lazy"><figcaption>Lower-level guest room</figcaption></figure><figure class="clickable" onclick="openLightbox(20)"><img src="laundry-utility-01.jpg" alt="Laundry / utility" loading="lazy"><figcaption>Laundry / utility</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Floor 2 - Main Level</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(4)"><img src="living-room-main-01.jpg" alt="Living room - fireplace & custom built-ins" loading="lazy"><figcaption>Living room - fireplace & custom built-ins</figcaption></figure><figure class="clickable" onclick="openLightbox(5)"><img src="dining-room-01.jpg" alt="Dining room" loading="lazy"><figcaption>Dining room</figcaption></figure><figure class="clickable" onclick="openLightbox(6)"><img src="kitchen-01.jpg" alt="Kitchen" loading="lazy"><figcaption>Kitchen</figcaption></figure><figure class="clickable" onclick="openLightbox(7)"><img src="kitchen-02.jpg" alt="Kitchen, second angle" loading="lazy"><figcaption>Kitchen, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(14)"><img src="bedroom-secondary-01.jpg" alt="Second bedroom" loading="lazy"><figcaption>Second bedroom</figcaption></figure><figure class="clickable" onclick="openLightbox(16)"><img src="bathroom-01.jpg" alt="Full bathroom" loading="lazy"><figcaption>Full bathroom</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Floor 3 - Upper Level</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(8)"><img src="family-room-01.jpg" alt="Family room - fireplace & French doors to deck" loading="lazy"><figcaption>Family room - fireplace & French doors to deck</figcaption></figure><figure class="clickable" onclick="openLightbox(9)"><img src="family-room-02.jpg" alt="Family room, second angle" loading="lazy"><figcaption>Family room, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(10)"><img src="deck-view-01.jpg" alt="Deck - city & mountain views" loading="lazy"><figcaption>Deck - city & mountain views</figcaption></figure><figure class="clickable" onclick="openLightbox(11)"><img src="view-skyline-01.jpg" alt="The view from upstairs" loading="lazy"><figcaption>The view from upstairs</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Floor 4 - Primary Level</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(12)"><img src="primary-suite-01.jpg" alt="Primary suite - vaulted ceiling" loading="lazy"><figcaption>Primary suite - vaulted ceiling</figcaption></figure><figure class="clickable" onclick="openLightbox(13)"><img src="primary-suite-02.jpg" alt="Primary suite, second angle" loading="lazy"><figcaption>Primary suite, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(17)"><img src="bathroom-vanity-02.jpg" alt="Bath - vanity & skylight" loading="lazy"><figcaption>Bath - vanity & skylight</figcaption></figure></div></div>
@@ -542,8 +566,8 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
     <h2>825 NE 75th St, Seattle, WA 98115</h2>
     <div class="details-grid" style="margin-top:32px;">
       <div class="desc">
-        <p>Perched above what locals call Banner Island, this 1909 craftsman was substantially rebuilt in 1984 and has been meticulously re-crafted inside and out since, with custom built-ins on every level and a light-filled floor plan that still carries all its original character. The main floor pairs a fireplace-and-built-in living room with a formal dining room and an eat-in kitchen; upstairs, a second family room with its own fireplace opens through French doors to a view deck looking out over the city and the mountains.</p>
-        <p>The vaulted primary suite, capped with an exposed beam and a wall of windows, is the showpiece, but there's plenty of room to spread out, including a second bedroom, a home office, two full baths, a partially finished lower level with a guest room, rec space, and its own dedicated wine cellar, plus a dedicated shop off the attached garage. Out front, a long, secluded driveway and terraced planting beds lead up to the covered porch; out back, a secluded, professionally landscaped garden offers a quiet retreat two blocks from Green Lake.</p>
+        <p>Perched above what locals call Banner Island in Seattle's Roosevelt neighborhood, this 1909 craftsman was substantially rebuilt in 1984 and has been meticulously re-crafted inside and out since, with custom built-ins on every level and a light-filled floor plan that still carries all its original character. Green Lake is two blocks away, the Roosevelt Link light rail station is a half-mile walk with direct service to the U District, Capitol Hill, Downtown Seattle, and Sea-Tac Airport, and the shops and restaurants of Roosevelt, Maple Leaf, and Wallingford are all within easy reach: rare in-city access without giving up a quiet, residential street. The main floor pairs a fireplace-and-built-in living room with a formal dining room and an eat-in kitchen; upstairs, a second family room with its own fireplace opens through French doors to a view deck looking out over the city and the mountains.</p>
+        <p>The vaulted primary suite, capped with an exposed beam and a wall of windows, is the showpiece, but there's plenty of room to spread out and plenty of places to put things away: a second bedroom, a home office, two full baths, a partially finished lower level with a guest room, rec space, and its own dedicated wine cellar, a dedicated shop off the attached garage, and closet and storage space throughout that's genuinely rare for a home this age. Out front, a long, secluded driveway and terraced planting beds lead up to the covered porch; out back, a secluded, professionally landscaped garden offers a quiet retreat of its own.</p>
         <div class="mech-updates">
           <h4>Recent Updates</h4>
           <div class="mech-grid">
@@ -570,27 +594,12 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
           </div>
         </div>
         <p style="font-size:13.5px;">This home is offered for sale by its owner, Douglas Edward Kikendall, a licensed Washington real estate broker (WA Real Estate Broker License #24012665, <a href="https://www.pellego.com/" style="color:inherit;">Pellego Inc</a>). Doug is both the property owner/seller and the listing broker for this transaction; buyers are encouraged to consult their own licensed real estate broker for representation.</p>
-        <p style="font-style:italic; color:#6B6459; font-size:13.5px;">Copy above is drafted from the property's 2015 MLS listing (#821607) and public records; flag anything that's changed since (renovations, current condition) and it'll be updated.</p>
       </div>
-      <div class="spec-list">
-        <div><span class="k">BEDROOMS</span>4</div>
-        <div><span class="k">BATHROOMS</span>2</div>
-        <div><span class="k">LIVING AREA</span>2,720 sq ft</div>
-        <div><span class="k">LOT SIZE</span>4,550 sq ft</div>
-        <div><span class="k">YEAR BUILT</span>1909</div>
-        <div><span class="k">YEAR RENOVATED</span>1984</div>
-        <div><span class="k">STYLE</span>Craftsman, 1.5 story w/ basement</div>
-        <div><span class="k">VIEWS</span>City, Mountain, Territorial</div>
-        <div><span class="k">FIREPLACES</span>2</div>
-        <div><span class="k">HEATING</span>Forced air, natural gas</div>
-        <div><span class="k">FOUNDATION</span>Poured concrete</div>
-        <div><span class="k">EXTERIOR</span>Stone &amp; wood shingle</div>
-        <div><span class="k">GARAGE</span>Two-car, attached, plus dedicated shop</div>
-        <div><span class="k">DRIVEWAY</span>Long, secluded, private</div>
-        <div><span class="k">NEIGHBORHOOD</span>Roosevelt, Seattle 98115</div>
-        <div><span class="k">SUBDIVISION</span>Wallingford's Park Add.</div>
-        <div><span class="k">ASKING PRICE</span>Coming Soon</div>
-        <div><span class="k">PROPERTY TAXES</span>$12,826 (2026)</div>
+      <div class="spec-panel">
+        <h3 class="spec-panel-title">At a Glance</h3>
+        <div class="spec-list">
+          <div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18v-5a2 2 0 012-2h5a2 2 0 012 2M13 13h5a2 2 0 012 2v5M2 11V6a1 1 0 011-1h3a1 1 0 011 1v2M2 18h20"/></svg></span><div><span class="k">BEDROOMS</span>4</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v2a5 5 0 01-5 5H9a5 5 0 01-5-5v-2zM3 19h18M6 12V7a2 2 0 013-1.7"/></svg></span><div><span class="k">BATHROOMS</span>2</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v3M11 9v3M15 9v3M19 9v3"/></svg></span><div><span class="k">LIVING AREA</span>2,720 sq ft</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6z"/><path d="M9 4v14M15 6v14"/></svg></span><div><span class="k">LOT SIZE</span>4,550 sq ft</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 4v5h-5"/></svg></span><div><span class="k">YEAR RENOVATED</span>1984</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><span class="k">YEAR BUILT</span>1909</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span><div><span class="k">STYLE</span>Craftsman, 1.5 story w/ basement</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19l6-10 4 6 3-5 5 9H3z"/></svg></span><div><span class="k">VIEWS</span>City, Mountain, Territorial</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3-1 4-1 7a3 3 0 006 0c0-1-1-2-1-2 2 1 3 3 3 5a6 6 0 01-12 0c0-4 3-5 5-10z"/></svg></span><div><span class="k">FIREPLACES</span>2</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a2 2 0 012 2v9.5a4 4 0 11-4 0V5a2 2 0 012-2z"/><circle cx="12" cy="17" r="1.5"/></svg></span><div><span class="k">HEATING</span>Forced air, natural gas</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><div><span class="k">FOUNDATION</span>Poured concrete</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></span><div><span class="k">EXTERIOR</span>Stone &amp; wood shingle</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 002 2h1a2 2 0 002-2M5 17v-4l2-4h10l2 4v4M17 17a2 2 0 002 2h1a2 2 0 002-2"/><circle cx="7.5" cy="17" r="1.2"/><circle cx="16.5" cy="17" r="1.2"/></svg></span><div><span class="k">GARAGE</span>Two-car, attached, plus dedicated shop</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3L4 21M15 3l5 18M12 6v3M12 12v3M12 18v3"/></svg></span><div><span class="k">DRIVEWAY</span>Long, secluded, private</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><span class="k">NEIGHBORHOOD</span>Roosevelt, Seattle 98115</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 10h16M10 4v16"/></svg></span><div><span class="k">SUBDIVISION</span>Wallingford's Park Add.</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7l10 8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><div><span class="k">ASKING PRICE</span>Coming Soon</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6"/></svg></span><div><span class="k">PROPERTY TAXES</span>$12,826 (2026)</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -721,7 +730,7 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
 <div class="room-modal" id="room-modal">
   <div class="room-modal-card">
     <button class="room-modal-close" onclick="closeRoomCard()" aria-label="Close">&times;</button>
-    <div class="rm-kicker">This Room</div>
+    <div class="rm-kicker" id="room-modal-kicker">This Room</div>
     <h3 id="room-modal-title">Room</h3>
     <div class="rm-grid">
       <div class="rm-placeholder">QR code for this room<br>coming soon</div>
@@ -825,7 +834,8 @@ function switchFloor(num) {
 })();
 
 // --- Room detail modal ---
-function openRoomCard(name) {
+function openRoomCard(name, floorLabel) {
+  document.getElementById('room-modal-kicker').textContent = floorLabel || 'This Room';
   document.getElementById('room-modal-title').textContent = name;
   document.getElementById('room-modal').classList.add('open');
 }
