@@ -128,6 +128,41 @@ a { color: inherit; }
 .inspection-banner h3 { font-size: 20px; margin-bottom: 8px; }
 .inspection-banner p { font-size: 13.5px; opacity: 0.85; max-width: 560px; }
 
+/* FLOOR PLAN */
+.floorplan-blurb { color: var(--muted); font-size: 14.5px; margin-bottom: 20px; }
+.floorplan-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.floorplan-tab { padding: 9px 18px; border-radius: 20px; border: 1px solid #D9D4C8; background: transparent;
+  color: var(--muted); font-weight: 700; font-size: 12.5px; letter-spacing: 0.03em; cursor: pointer; font-family: inherit; }
+.floorplan-tab:hover { border-color: var(--gold); color: var(--dark-text); }
+.floorplan-tab.active { background: var(--bg-dark); color: var(--light); border-color: var(--bg-dark); }
+.floorplan-panels { margin-top: 26px; }
+.floorplan-panel { display: none; }
+.floorplan-panel.active { display: block; }
+.floorplan-rooms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.room-card { background: var(--light); border-radius: 12px; padding: 18px 20px; }
+.room-card .room-name { font-weight: 700; color: var(--dark-text); font-size: 14.5px; }
+.room-card .qr-tag { display: inline-block; margin-top: 9px; font-size: 10px; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--muted); background: #fff; border: 1px dashed #C9C2B4; border-radius: 20px; padding: 3px 10px; }
+.floorplan-sketch-wrap { background: #FBFAF7; border: 1px solid #ECE7DC; border-radius: 12px; padding: 24px 16px 16px; }
+.room-label { cursor: pointer; }
+.room-label:hover { fill: var(--gold); }
+.floorplan-image-wrap { position: relative; max-width: 640px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.floorplan-image-wrap img { width: 100%; display: block; }
+.room-hotspot { position: absolute; background: transparent; border: none; border-radius: 6px; padding: 0; margin: 0;
+  cursor: pointer; transition: background .15s ease; }
+.room-hotspot:hover, .room-hotspot:focus-visible { background: rgba(201,169,106,0.22); outline: none; }
+.room-modal { position: fixed; inset: 0; background: rgba(10,14,12,0.75); backdrop-filter: blur(4px); z-index: 250;
+  display: none; align-items: center; justify-content: center; padding: 20px; }
+.room-modal.open { display: flex; }
+.room-modal-card { background: #FBFAF7; border-radius: 16px; padding: 30px 32px; max-width: 380px; width: 100%; position: relative; box-shadow: var(--shadow-lg); }
+.room-modal-card .rm-kicker { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 700; }
+.room-modal-card h3 { font-size: 22px; color: var(--bg-dark); margin-bottom: 20px; }
+.room-modal-card .rm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.room-modal-card .rm-placeholder { height: 92px; border: 1.5px dashed #C9C2B4; border-radius: 10px; display: flex;
+  align-items: center; justify-content: center; text-align: center; color: var(--muted); font-size: 11px; padding: 8px; }
+.room-modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 20px; color: var(--muted); cursor: pointer; line-height: 1; }
+.room-modal-close:hover { color: var(--dark-text); }
+
 /* GALLERY */
 .gallery-group { margin-bottom: 44px; }
 .gallery-group h3 { font-size: 13px; letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
@@ -161,7 +196,7 @@ a { color: inherit; }
 
 /* AGENT */
 .agent-grid { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: start; }
-.agent-grid .agent-photo { border-radius: var(--radius); width: 100%; height: 430px; object-fit: cover; box-shadow: var(--shadow-md); }
+.agent-grid .agent-photo { border-radius: var(--radius); width: 100%; height: 430px; object-fit: cover; object-position: 50% 8%; box-shadow: var(--shadow-md); }
 .agent-bio p { margin-bottom: 16px; font-size: 15.5px; color: var(--dark-text); }
 .agent-photo-col .agent-credentials { margin-top: 18px; padding-top: 16px; border-top: 1px solid #ECE9E2; font-size: 12.5px; color: var(--muted); line-height: 1.7; }
 .agent-credentials strong { color: var(--dark-text); }
@@ -236,9 +271,11 @@ footer.site-footer .disclaimer + .disclaimer { margin-top: 12px; }
   .story-block { grid-template-columns: 1fr; }
   .poi-grid { grid-template-columns: 1fr 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .floorplan-rooms { grid-template-columns: 1fr 1fr; }
+  .floorplan-tab { padding: 8px 14px; font-size: 11.5px; }
   .details-grid { grid-template-columns: 1fr; }
   .agent-grid { grid-template-columns: 1fr; }
-  .agent-grid .agent-photo { height: 300px; }
+  .agent-grid .agent-photo { height: 340px; object-position: 50% 5%; }
   .lightbox-inner { grid-template-columns: 1fr; overflow-y: auto; }
   .nav ul { display: none; }
   .nav-contact { padding-left: 0; border-left: none; gap: 6px; }
@@ -266,6 +303,7 @@ footer.site-footer .disclaimer + .disclaimer { margin-top: 12px; }
       <ul>
         <li><a href="#story">The Story</a></li>
         <li><a href="#neighborhood">Neighborhood</a></li>
+        <li><a href="#floorplan">Floor Plan</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#details">Details</a></li>
         <li><a href="#agent">Agent</a></li>
@@ -291,6 +329,7 @@ footer.site-footer .disclaimer + .disclaimer { margin-top: 12px; }
     <p class="sub">Roosevelt, Seattle - walkable to Green Lake and Maple Leaf, moments from the light rail, and closer to everything than you'd guess.</p>
     <div class="btn-row">
       <a class="btn btn-accent" href="#story">Read the Full Story</a>
+      <a class="btn btn-outline" href="#floorplan">Floor Plan</a>
       <a class="btn btn-outline" href="#gallery">Images</a>
       <a class="btn btn-outline" href="mailto:Doug@Tour825.com?subject=Request%3A%20Pre-Inspection%20Report%20%26%20Sewer%20Scope%20-%20825%20NE%2075th%20St&body=Hi%20Doug%2C%0A%0AI%27ve%20toured%20825%20NE%2075th%20St%20and%20would%20like%20to%20request%20a%20copy%20of%20the%20pre-inspection%20report%20and%20sewer%20scope.%0A%0AName%3A%20%0APhone%3A%20%0ADate%20of%20tour%3A%20%0A%0AThanks%21">Request Inspection / Sewer Scope</a>
       <a class="btn btn-outline" href="#updates">Important Dates</a>
@@ -402,6 +441,43 @@ footer.site-footer .disclaimer + .disclaimer { margin-top: 12px; }
 </section>
 
 
+<section class="section reveal" id="floorplan" style="background:#FBFAF7;">
+  <div class="wrap">
+    <div class="kicker">Explore the Home</div>
+    <h2>Floor Plan</h2>
+    <p class="lede">Four levels, each built for a different part of life. Tap a floor to see what's there.
+    During the open house, each room carries its own QR code that links straight back to this page.</p>
+    <div class="floorplan-tabs" style="margin-top:28px;"><button class="floorplan-tab active" data-floor="1" onclick="switchFloor('1')">Floor 1 &middot; Lower Level</button><button class="floorplan-tab" data-floor="2" onclick="switchFloor('2')">Floor 2 &middot; Main Level</button><button class="floorplan-tab" data-floor="3" onclick="switchFloor('3')">Floor 3 &middot; Upper Level</button><button class="floorplan-tab" data-floor="4" onclick="switchFloor('4')">Floor 4 &middot; Primary Level</button><button class="floorplan-tab" data-floor="garage" onclick="switchFloor('garage')">Garage</button></div>
+    <div class="floorplan-panels"><div class="floorplan-panel active" id="floor-panel-1"><p class="floorplan-blurb">Partially finished bonus space: rec room, office, wine cellar, and the shop entry.</p>
+<div class="floorplan-image-wrap">
+<img src="floorplan-1-lower-level-v2.png" alt="Lower Level floor plan sketch">
+<button type="button" class="room-hotspot" style="left:16%;top:12.5%;width:12%;height:5%;" onclick="openRoomCard('Entry')" aria-label="Entry"></button><button type="button" class="room-hotspot" style="left:30.5%;top:31.5%;width:25%;height:5%;" onclick="openRoomCard('Recreation Room')" aria-label="Recreation Room"></button><button type="button" class="room-hotspot" style="left:18.5%;top:55%;width:18%;height:5%;" onclick="openRoomCard('Workroom')" aria-label="Workroom"></button><button type="button" class="room-hotspot" style="left:47.5%;top:69%;width:14%;height:5%;" onclick="openRoomCard('Utility')" aria-label="Utility"></button><button type="button" class="room-hotspot" style="left:18%;top:75%;width:18%;height:5%;" onclick="openRoomCard('Office')" aria-label="Office"></button><button type="button" class="room-hotspot" style="left:72%;top:73%;width:16%;height:8%;" onclick="openRoomCard('Wine Cellar')" aria-label="Wine Cellar"></button>
+</div>
+</div><div class="floorplan-panel" id="floor-panel-2"><p class="floorplan-blurb">Living room, dining room, kitchen, two bedrooms, a full bath, and a hall: the level you enter on.</p>
+<div class="floorplan-image-wrap">
+<img src="floorplan-2-main-level.png" alt="Main Level floor plan sketch">
+<button type="button" class="room-hotspot" style="left:17.5%;top:25.5%;width:15%;height:4%;" onclick="openRoomCard('Front Bedroom')" aria-label="Front Bedroom"></button><button type="button" class="room-hotspot" style="left:50.5%;top:27%;width:14%;height:4%;" onclick="openRoomCard('Kitchen')" aria-label="Kitchen"></button><button type="button" class="room-hotspot" style="left:18%;top:47%;width:13%;height:4%;" onclick="openRoomCard('Full Bath')" aria-label="Full Bath"></button><button type="button" class="room-hotspot" style="left:30%;top:47%;width:8%;height:4%;" onclick="openRoomCard('Hall')" aria-label="Hall"></button><button type="button" class="room-hotspot" style="left:50.5%;top:47.5%;width:14%;height:4%;" onclick="openRoomCard('Dining Room')" aria-label="Dining Room"></button><button type="button" class="room-hotspot" style="left:18%;top:65.5%;width:15%;height:4%;" onclick="openRoomCard('Back Bedroom')" aria-label="Back Bedroom"></button><button type="button" class="room-hotspot" style="left:50.5%;top:68%;width:14%;height:4%;" onclick="openRoomCard('Living Room')" aria-label="Living Room"></button>
+</div>
+</div><div class="floorplan-panel" id="floor-panel-3"><p class="floorplan-blurb">A second family room with its own fireplace, opening onto the view deck.</p>
+<div class="floorplan-image-wrap">
+<img src="floorplan-3-upper-level.png" alt="Upper Level floor plan sketch">
+<button type="button" class="room-hotspot" style="left:52%;top:17%;width:13%;height:5%;" onclick="openRoomCard('Balcony')" aria-label="Balcony"></button><button type="button" class="room-hotspot" style="left:49.5%;top:51.5%;width:19%;height:5%;" onclick="openRoomCard('Family Room')" aria-label="Family Room"></button>
+</div>
+</div><div class="floorplan-panel" id="floor-panel-4"><p class="floorplan-blurb">The vaulted primary suite on its own floor, with an exposed beam and a wall of windows.</p>
+<div class="floorplan-image-wrap">
+<img src="floorplan-4-primary-level.png" alt="Primary Level floor plan sketch">
+<button type="button" class="room-hotspot" style="left:38.5%;top:34%;width:27%;height:5%;" onclick="openRoomCard('Primary Bedroom')" aria-label="Primary Bedroom"></button><button type="button" class="room-hotspot" style="left:32%;top:70%;width:9%;height:4%;" onclick="openRoomCard('Hall')" aria-label="Hall"></button><button type="button" class="room-hotspot" style="left:50.5%;top:73%;width:14%;height:4%;" onclick="openRoomCard('Full Bath')" aria-label="Full Bath"></button>
+</div>
+</div><div class="floorplan-panel" id="floor-panel-garage"><p class="floorplan-blurb">Attached two-car garage with a dedicated workbench area off the back.</p>
+<div class="floorplan-image-wrap">
+<img src="floorplan-garage.png" alt="Garage floor plan sketch">
+<button type="button" class="room-hotspot" style="left:40%;top:48%;width:20%;height:10%;" onclick="openRoomCard('Garage')" aria-label="Garage"></button>
+</div>
+</div></div>
+  </div>
+</section>
+
+
 <section class="section" id="gallery">
   <div class="wrap">
     <div class="kicker reveal">The Home</div>
@@ -413,7 +489,7 @@ footer.site-footer .disclaimer + .disclaimer { margin-top: 12px; }
 <div class="gallery-group reveal"><h3>Bedrooms, Office & Baths</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(12)"><img src="primary-suite-01.jpg" alt="Primary suite - vaulted ceiling" loading="lazy"><figcaption>Primary suite - vaulted ceiling</figcaption></figure><figure class="clickable" onclick="openLightbox(13)"><img src="primary-suite-02.jpg" alt="Primary suite, second angle" loading="lazy"><figcaption>Primary suite, second angle</figcaption></figure><figure class="clickable" onclick="openLightbox(14)"><img src="bedroom-secondary-01.jpg" alt="Second bedroom" loading="lazy"><figcaption>Second bedroom</figcaption></figure><figure class="clickable" onclick="openLightbox(15)"><img src="office-den-01.jpg" alt="Office / den" loading="lazy"><figcaption>Office / den</figcaption></figure><figure class="clickable" onclick="openLightbox(16)"><img src="bathroom-01.jpg" alt="Full bathroom" loading="lazy"><figcaption>Full bathroom</figcaption></figure><figure class="clickable" onclick="openLightbox(17)"><img src="bathroom-vanity-02.jpg" alt="Bath - vanity & skylight" loading="lazy"><figcaption>Bath - vanity & skylight</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Lower Level & Shop</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(18)"><img src="lower-level-rec-01.jpg" alt="Lower level rec area" loading="lazy"><figcaption>Lower level rec area</figcaption></figure><figure class="clickable" onclick="openLightbox(19)"><img src="lower-bedroom-01.jpg" alt="Lower-level guest room" loading="lazy"><figcaption>Lower-level guest room</figcaption></figure><figure class="clickable" onclick="openLightbox(20)"><img src="laundry-utility-01.jpg" alt="Laundry / utility" loading="lazy"><figcaption>Laundry / utility</figcaption></figure><figure class="clickable" onclick="openLightbox(21)"><img src="shop-01.jpg" alt="Dedicated shop" loading="lazy"><figcaption>Dedicated shop</figcaption></figure></div></div>
 <div class="gallery-group reveal"><h3>Outdoor</h3><div class="gallery-grid"><figure class="clickable" onclick="openLightbox(22)"><img src="garden-01.jpg" alt="Secluded garden, out back" loading="lazy"><figcaption>Secluded garden, out back</figcaption></figure><figure class="clickable" onclick="openLightbox(23)"><img src="shop-02.jpg" alt="Shop workbench detail" loading="lazy"><figcaption>Shop workbench detail</figcaption></figure></div></div>
-<div class="gallery-group reveal"><h3>More On the Way</h3><div class="gallery-grid"><div class="soon">+ DRIVEWAY PHOTO<br>COMING SOON</div><div class="soon">+ MORE PHOTOS<br>COMING SOON</div></div></div>
+<div class="gallery-group reveal"><h3>More On the Way</h3><div class="gallery-grid"><div class="soon">+ DRIVEWAY PHOTO<br>COMING SOON</div><div class="soon">+ WINE CELLAR<br>COMING SOON</div><div class="soon">+ GARAGE<br>COMING SOON</div><div class="soon">+ MORE PHOTOS<br>COMING SOON</div></div></div>
   </div>
 </section>
 
@@ -425,7 +501,7 @@ footer.site-footer .disclaimer + .disclaimer { margin-top: 12px; }
     <div class="details-grid" style="margin-top:32px;">
       <div class="desc">
         <p>Perched above what locals call Banner Island, this 1909 craftsman was substantially rebuilt in 1984 and has been meticulously re-crafted inside and out since, with custom built-ins on every level and a light-filled floor plan that still carries all its original character. The main floor pairs a fireplace-and-built-in living room with a formal dining room and an eat-in kitchen; upstairs, a second family room with its own fireplace opens through French doors to a view deck looking out over the city and the mountains.</p>
-        <p>The vaulted primary suite, capped with an exposed beam and a wall of windows, is the showpiece, but there's plenty of room to spread out, including a second bedroom, a home office, two full baths, a partially finished lower level with a guest room and rec space, and a dedicated shop off the attached garage. Out front, a long, secluded driveway and terraced planting beds lead up to the covered porch; out back, a secluded, professionally landscaped garden offers a quiet retreat two blocks from Green Lake.</p>
+        <p>The vaulted primary suite, capped with an exposed beam and a wall of windows, is the showpiece, but there's plenty of room to spread out, including a second bedroom, a home office, two full baths, a partially finished lower level with a guest room, rec space, and its own dedicated wine cellar, plus a dedicated shop off the attached garage. Out front, a long, secluded driveway and terraced planting beds lead up to the covered porch; out back, a secluded, professionally landscaped garden offers a quiet retreat two blocks from Green Lake.</p>
         <div class="mech-updates">
           <h4>Recent Updates</h4>
           <div class="mech-item">
@@ -597,8 +673,21 @@ footer.site-footer .disclaimer + .disclaimer { margin-top: 12px; }
 </div>
 
 
+<div class="room-modal" id="room-modal">
+  <div class="room-modal-card">
+    <button class="room-modal-close" onclick="closeRoomCard()" aria-label="Close">&times;</button>
+    <div class="rm-kicker">This Room</div>
+    <h3 id="room-modal-title">Room</h3>
+    <div class="rm-grid">
+      <div class="rm-placeholder">QR code for this room<br>coming soon</div>
+      <div class="rm-placeholder">Photos of this room<br>coming soon</div>
+    </div>
+  </div>
+</div>
+
+
 <script>
-const galleryData = [{"src": "exterior-front-01.jpg", "caption": "Craftsman facade, terraced front garden", "detail": "Built in 1909 and still wearing its craftsman bones proudly: tapered porch columns, exposed rafter tails, and a stone-and-shingle facade framed by terraced planting beds that step down toward the street."}, {"src": "exterior-front-02.jpg", "caption": "Side profile & chimney", "detail": "A side view showing the home's full massing. The brick chimney serves one of the two working fireplaces inside, and the stone base wraps the whole footprint of the house."}, {"src": "porch-entry-01.jpg", "caption": "Covered front porch and entry at 825", "detail": "The covered front porch is deep enough for real furniture, not just a doormat: a quiet spot for morning coffee before the day starts, right at the top of the stairs."}, {"src": "garage-shop-exterior-01.jpg", "caption": "Attached garage & shop", "detail": "Beyond the attached garage sits a genuine dedicated shop space: pegboard walls, a full workbench, and enough room for real projects, not just storage."}, {"src": "living-room-main-01.jpg", "caption": "Living room - fireplace & custom built-ins", "detail": "One of the home's two fireplaces anchors the main-floor living room, flanked by custom built-in shelving original to the home's character but clearly well cared for."}, {"src": "dining-room-01.jpg", "caption": "Dining room", "detail": "A proper formal dining room, large enough for a full-size table and a real dinner party, just off the kitchen for easy serving."}, {"src": "kitchen-01.jpg", "caption": "Kitchen", "detail": "The kitchen's peninsula creates a natural gathering spot, with pendant lighting overhead and a window over the sink looking out toward the street."}, {"src": "kitchen-02.jpg", "caption": "Kitchen, second angle", "detail": "A second view of the kitchen's full U-shaped layout, showing how much counter and storage space is packed into the footprint."}, {"src": "family-room-01.jpg", "caption": "Family room - fireplace & French doors to deck", "detail": "The upper-level family room has its own fireplace and French doors that open straight onto the view deck: indoor and outdoor living, connected."}, {"src": "family-room-02.jpg", "caption": "Family room, second angle", "detail": "From the sectional, the room's blue-toned walls and hardwood floors read as calm and current, not dated: a genuinely liveable space, not a showroom."}, {"src": "deck-view-01.jpg", "caption": "Deck - city & mountain views", "detail": "This is where the city and mountain views become real: a private deck with room for a full outdoor dining set and a skyline that doesn't get old."}, {"src": "view-skyline-01.jpg", "caption": "The view from upstairs", "detail": "Even from inside, the upper level's windows frame downtown Seattle and the horizon beyond: the kind of view that's genuinely rare at this price point."}, {"src": "primary-suite-01.jpg", "caption": "Primary suite - vaulted ceiling", "detail": "The primary suite's vaulted ceiling and exposed beam give it a scale you don't expect from a 1909 home: more great room than bedroom."}, {"src": "primary-suite-02.jpg", "caption": "Primary suite, second angle", "detail": "A wall of windows floods the primary suite with natural light and frames another slice of the view: waking up here is part of the pitch."}, {"src": "bedroom-secondary-01.jpg", "caption": "Second bedroom", "detail": "A comfortably sized second bedroom with its own closet: flexible as a kid's room, guest room, or dedicated home office."}, {"src": "office-den-01.jpg", "caption": "Office / den", "detail": "A dedicated home office with built-in shelving already in place: work from home without giving up a bedroom to do it."}, {"src": "bathroom-01.jpg", "caption": "Full bathroom", "detail": "A full bath with a corner shower and pedestal sink: classic fixtures that suit the home's original character."}, {"src": "bathroom-vanity-02.jpg", "caption": "Bath - vanity & skylight", "detail": "A skylight keeps this second bath naturally bright all day, with a separate toilet nook for privacy and a full vanity with real counter space."}, {"src": "lower-level-rec-01.jpg", "caption": "Lower level rec area", "detail": "The partially finished lower level adds genuine bonus square footage: flexible space for a rec room, home gym, or overflow storage."}, {"src": "lower-bedroom-01.jpg", "caption": "Lower-level guest room", "detail": "A wood-paneled lower-level room doubles as a guest room or the quietest home office in the house: tucked away from the main living areas."}, {"src": "laundry-utility-01.jpg", "caption": "Laundry / utility", "detail": "A full laundry and utility room with real counter and shelf space: not a closet with a stacked unit."}, {"src": "shop-01.jpg", "caption": "Dedicated shop", "detail": "A serious workbench setup with pegboard tool storage: built for someone who actually uses a shop, not just stores boxes in one."}, {"src": "garden-01.jpg", "caption": "Secluded garden, out back", "detail": "A professionally landscaped, partially fenced garden with a gravel path winding through mature plantings: private enough to forget you're in the city."}, {"src": "shop-02.jpg", "caption": "Shop workbench detail", "detail": "A closer look at the shop's workbench and built-in cabinetry: storage designed in, not improvised."}];
+const galleryData = [{"src": "exterior-front-01.jpg", "caption": "Craftsman facade, terraced front garden", "detail": "Built in 1909 and still wearing its craftsman bones proudly: tapered porch columns, exposed rafter tails, and a stone-and-shingle facade framed by terraced planting beds that step down toward the street."}, {"src": "exterior-front-02.jpg", "caption": "Side profile & chimney", "detail": "A side view showing the home's full massing. The brick chimney serves one of the two working fireplaces inside, and the stone base wraps the whole footprint of the house."}, {"src": "porch-entry-01.jpg", "caption": "Covered front porch and entry at 825", "detail": "The covered front porch is deep enough for real furniture, not just a doormat: a quiet spot for morning coffee before the day starts, right at the top of the stairs."}, {"src": "garage-shop-exterior-01.jpg", "caption": "Attached garage & shop", "detail": "Beyond the attached garage sits a genuine dedicated shop space: pegboard walls, a full workbench, and enough room for real projects, not just storage."}, {"src": "living-room-main-01.jpg", "caption": "Living room - fireplace & custom built-ins", "detail": "One of the home's two fireplaces anchors the main-floor living room, flanked by custom built-in shelving original to the home's character but clearly well cared for."}, {"src": "dining-room-01.jpg", "caption": "Dining room", "detail": "A proper formal dining room, large enough for a full-size table and a real dinner party, just off the kitchen for easy serving."}, {"src": "kitchen-01.jpg", "caption": "Kitchen", "detail": "The kitchen's peninsula creates a natural gathering spot, with pendant lighting overhead and a window over the sink looking out toward the street."}, {"src": "kitchen-02.jpg", "caption": "Kitchen, second angle", "detail": "A second view of the kitchen's full U-shaped layout, showing how much counter and storage space is packed into the footprint."}, {"src": "family-room-01.jpg", "caption": "Family room - fireplace & French doors to deck", "detail": "The upper-level family room has its own fireplace and French doors that open straight onto the view deck: indoor and outdoor living, connected."}, {"src": "family-room-02.jpg", "caption": "Family room, second angle", "detail": "From the sectional, the room's blue-toned walls and hardwood floors read as calm and current, not dated: a genuinely liveable space, not a showroom."}, {"src": "deck-view-01.jpg", "caption": "Deck - city & mountain views", "detail": "This is where the city and mountain views become real: a private deck with room for a full outdoor dining set and a skyline that doesn't get old."}, {"src": "view-skyline-01.jpg", "caption": "The view from upstairs", "detail": "Even from inside, the upper level's windows frame downtown Seattle and the horizon beyond: the kind of view that's genuinely rare at this price point."}, {"src": "primary-suite-01.jpg", "caption": "Primary suite - vaulted ceiling", "detail": "The primary suite's vaulted ceiling and exposed beam give it a scale you don't expect from a 1909 home: more great room than bedroom."}, {"src": "primary-suite-02.jpg", "caption": "Primary suite, second angle", "detail": "A wall of windows floods the primary suite with natural light and frames another slice of the view: waking up here is part of the pitch."}, {"src": "bedroom-secondary-01.jpg", "caption": "Second bedroom", "detail": "A comfortably sized second bedroom with its own closet: flexible as a kid's room, guest room, or dedicated home office."}, {"src": "office-den-01.jpg", "caption": "Office / den", "detail": "A dedicated home office with built-in shelving already in place: work from home without giving up a bedroom to do it."}, {"src": "bathroom-01.jpg", "caption": "Full bathroom", "detail": "A full bath with a corner shower and pedestal sink: classic fixtures that suit the home's original character."}, {"src": "bathroom-vanity-02.jpg", "caption": "Bath - vanity & skylight", "detail": "A skylight keeps this second bath naturally bright all day, with a separate toilet nook for privacy and a full vanity with real counter space."}, {"src": "lower-level-rec-01.jpg", "caption": "Lower level rec area", "detail": "The partially finished lower level adds genuine bonus square footage: flexible space for a rec room, home gym, or overflow storage, plus its own dedicated wine cellar tucked off to the side."}, {"src": "lower-bedroom-01.jpg", "caption": "Lower-level guest room", "detail": "A wood-paneled lower-level room doubles as a guest room or the quietest home office in the house: tucked away from the main living areas."}, {"src": "laundry-utility-01.jpg", "caption": "Laundry / utility", "detail": "A full laundry and utility room with real counter and shelf space: not a closet with a stacked unit."}, {"src": "shop-01.jpg", "caption": "Dedicated shop", "detail": "A serious workbench setup with pegboard tool storage: built for someone who actually uses a shop, not just stores boxes in one."}, {"src": "garden-01.jpg", "caption": "Secluded garden, out back", "detail": "A professionally landscaped, partially fenced garden with a gravel path winding through mature plantings: private enough to forget you're in the city."}, {"src": "shop-02.jpg", "caption": "Shop workbench detail", "detail": "A closer look at the shop's workbench and built-in cabinetry: storage designed in, not improvised."}];
 let currentIndex = 0;
 function updateLightbox() {
   const item = galleryData[currentIndex];
@@ -630,6 +719,36 @@ document.addEventListener('keydown', function(e) {
 });
 document.getElementById('lightbox').addEventListener('click', function(e) {
   if (e.target === this) closeLightbox();
+});
+
+// --- Floor plan tabs ---
+function switchFloor(num) {
+  document.querySelectorAll('.floorplan-tab').forEach(t => t.classList.toggle('active', t.dataset.floor === num));
+  document.querySelectorAll('.floorplan-panel').forEach(p => p.classList.toggle('active', p.id === 'floor-panel-' + num));
+}
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const floor = params.get('floor');
+  if (floor && document.getElementById('floor-panel-' + floor)) {
+    switchFloor(floor);
+    const target = document.getElementById('floorplan');
+    if (target) setTimeout(() => target.scrollIntoView({ behavior: 'auto', block: 'start' }), 0);
+  }
+})();
+
+// --- Room detail modal ---
+function openRoomCard(name) {
+  document.getElementById('room-modal-title').textContent = name;
+  document.getElementById('room-modal').classList.add('open');
+}
+function closeRoomCard() {
+  document.getElementById('room-modal').classList.remove('open');
+}
+document.getElementById('room-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeRoomCard();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeRoomCard();
 });
 
 // --- POI modal ---
