@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+  // Always land on the hero, not wherever the browser last had you scrolled to
+  // (Chrome/Safari restore scroll position on reload by default).
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  if (!window.location.hash) { window.scrollTo(0, 0); }
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCR79DJ03N"></script>
 <script>
