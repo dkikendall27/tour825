@@ -748,7 +748,7 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
   <div class="wrap">
     <div class="kicker">Important Dates</div>
     <h2>Listing Updates</h2>
-    <p class="lede">Key dates for 825 NE 75th St as this listing moves from the MLS debut to offer review.</p>
+    <p class="lede">Key dates for 825 NE 75th St as this listing moves from the MLS debut through open house weekend.</p>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-date">SEP 10, 2026</div>
@@ -759,16 +759,10 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
         <div class="tl-date">FRI SEP 11 - SUN SEP 13, 2026</div>
         <h4>Open Houses</h4>
         <ul class="tl-list">
-          <li><span class="tl-day">Friday, Sept 11</span><span class="tl-time">TBD</span></li>
-          <li><span class="tl-day">Saturday, Sept 12</span><span class="tl-time">TBD</span></li>
-          <li><span class="tl-day">Sunday, Sept 13</span><span class="tl-time">TBD</span></li>
+          <li><span class="tl-day">Friday, Sept 11</span><span class="tl-time">1 - 4 PM</span></li>
+          <li><span class="tl-day">Saturday, Sept 12</span><span class="tl-time">11 AM - 3 PM</span></li>
+          <li><span class="tl-day">Sunday, Sept 13</span><span class="tl-time">11 AM - 2 PM</span></li>
         </ul>
-        <p>Exact times are still being finalized and will be posted here and on the flyer once confirmed.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">1PM PST, TUE SEP 15, 2026</div>
-        <h4>Offer Review Date <span class="tl-countdown" id="offer-countdown"></span></h4>
-        <p>All offers are due by 1PM and will be reviewed starting then. Doug will respond to all submitting parties shortly after.</p>
       </div>
     </div>
   </div>
@@ -1189,32 +1183,6 @@ function shareListing() {
   var el = document.getElementById('mls-countdown');
   if (!el) return;
   var target = new Date('2026-09-10T00:00:00');
-  function tick() {
-    var diffMs = target - new Date();
-    if (diffMs <= 0) {
-      el.textContent = 'today';
-      clearInterval(timer);
-      return;
-    }
-    var days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var hourWord = hours === 1 ? 'hour' : 'hours';
-    if (days >= 1) {
-      var dayWord = days === 1 ? 'day' : 'days';
-      el.textContent = days + ' ' + dayWord + ' ' + hours + ' ' + hourWord + ' away';
-    } else {
-      el.textContent = hours + ' ' + hourWord + ' away';
-    }
-  }
-  tick();
-  var timer = setInterval(tick, 60000);
-})();
-
-// --- Offer Review countdown (live, days + hours) ---
-(function() {
-  var el = document.getElementById('offer-countdown');
-  if (!el) return;
-  var target = new Date('2026-09-15T13:00:00');
   function tick() {
     var diffMs = target - new Date();
     if (diffMs <= 0) {
