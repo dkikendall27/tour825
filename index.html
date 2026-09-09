@@ -3,9 +3,14 @@
 <head>
 <script>
   // Always land on the hero, not wherever the browser last had you scrolled to
-  // (Chrome/Safari restore scroll position on reload by default).
+  // (Chrome/Safari restore scroll position on reload, and mobile browsers can
+  // restore a page from cache on back/forward without re-running this script
+  // unless we also listen for that case via pageshow).
   if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
   if (!window.location.hash) { window.scrollTo(0, 0); }
+  window.addEventListener('pageshow', function() {
+    if (!window.location.hash) { window.scrollTo(0, 0); }
+  });
 </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCR79DJ03N"></script>
@@ -920,7 +925,7 @@ function galleryGroups() {
   const defs = galleryMode === 'room' ? roomGroupDefs : floorGroupDefs;
   return Object.keys(defs).map(name => ({ name: name, filenames: defs[name] }));
 }
-function renderGalleryPicker() {
+function renderGalleryPicker(scrollActive) {
   const groups = galleryGroups();
   const el = document.getElementById('galleryPicker');
   el.innerHTML = groups.map((g, i) => {
@@ -932,8 +937,13 @@ function renderGalleryPicker() {
   }).join('');
   const hint = document.getElementById('pickerScrollHint');
   if (hint) hint.style.display = (el.scrollHeight > el.clientHeight + 2) ? 'block' : 'none';
-  const active = el.querySelector('.room-pill.active');
-  if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  // Only nudge the picker's own internal scroll into view when the user just made a
+  // selection (click/swipe) - never on the initial page-load render, or this drags the
+  // whole page down to the Photos section on every visit.
+  if (scrollActive) {
+    const active = el.querySelector('.room-pill.active');
+    if (active) active.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+  }
 }
 function renderGalleryGrid() {
   const groups = galleryGroups();
@@ -947,18 +957,18 @@ function renderGalleryGrid() {
       '<figcaption>' + item.caption + '</figcaption></figure>';
   }).join('');
 }
-function selectGalleryGroup(i) { galleryGroupIdx = i; renderGalleryPicker(); renderGalleryGrid(); }
+function selectGalleryGroup(i) { galleryGroupIdx = i; renderGalleryPicker(true); renderGalleryGrid(); }
 function stepGalleryGroup(delta) {
   const groups = galleryGroups();
   galleryGroupIdx = (galleryGroupIdx + delta + groups.length) % groups.length;
-  renderGalleryPicker();
+  renderGalleryPicker(true);
   renderGalleryGrid();
 }
 function switchGalleryView(view) {
   document.querySelectorAll('#gallery .gallery-view-toggle .floorplan-tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
   galleryMode = view;
   galleryGroupIdx = 0;
-  renderGalleryPicker();
+  renderGalleryPicker(true);
   renderGalleryGrid();
 }
 renderGalleryPicker();
