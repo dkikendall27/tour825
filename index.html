@@ -31,7 +31,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>825 NE 75th St, Roosevelt, Seattle | Tour825.com</title>
-<meta name="description" content="A 1909 craftsman in Roosevelt, Seattle. 4 bed, 2 bath, 2,720 sq ft, steps to Green Lake and the Roosevelt light rail. Asking price coming soon.">
+<meta name="description" content="A 1909 craftsman in Roosevelt, Seattle. 4 bed, 2 bath, 2,720 sq ft, steps to Green Lake and the Roosevelt light rail. Offered at $1,350,000.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,6 +80,9 @@ a { color: inherit; }
 .nav-contact-info a { color: var(--light); font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; opacity: 1; }
 .nav-contact-info a:hover { opacity: 0.8; }
 .nav-contact .sep { color: rgba(255,255,255,0.3); font-size: 11px; }
+.nav-price-row { display: flex; align-items: center; gap: 18px; }
+.nav-price { font-family: 'Inter', -apple-system, sans-serif; font-style: normal; font-weight: 800;
+  font-size: 16.5px; color: var(--gold); letter-spacing: 0.01em; }
 
 /* BUTTONS */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-weight: 700;
@@ -280,8 +283,12 @@ select.picker-select:hover, select.picker-select:focus { border-color: var(--gol
   font-size: 20px; color: var(--bg-dark); }
 .spec-panel-teaser { display: block; font-family: 'Inter', -apple-system, sans-serif; font-style: normal; font-size: 12px;
   color: var(--muted); font-weight: 600; margin-top: 5px; letter-spacing: 0.01em; }
-.spec-panel-icon { flex: 0 0 auto; color: var(--gold); font-size: 14px; transition: transform .2s ease; }
+.spec-panel-price { flex: 0 0 auto; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 500;
+  font-size: 22px; color: var(--gold); background: var(--bg-dark); padding: 8px 20px; border-radius: 8px; white-space: nowrap; }
+.spec-panel-icon { flex: 0 0 auto; color: var(--gold); display: flex; align-items: center; transition: transform .2s ease; }
+.spec-panel-icon svg { width: 22px; height: 22px; }
 .spec-panel[open] .spec-panel-icon { transform: rotate(180deg); }
+@media (max-width: 560px) { .spec-panel-price { font-size: 17px; padding: 6px 14px; } }
 .spec-list { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 22px; padding: 4px 28px 28px; }
 .spec-row { display: flex; align-items: center; gap: 11px; padding-bottom: 14px; margin-bottom: 14px;
   border-bottom: 1px solid rgba(38,36,31,0.09); }
@@ -458,7 +465,10 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
           <span class="sep">&middot;</span>
           <a class="email-link" href="mailto:Doug@Tour825.com">Doug@Tour825.com</a>
         </div>
-        <a class="nav-top-link" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; Home</a>
+        <div class="nav-price-row">
+          <span class="nav-price">$1,350,000</span>
+          <a class="nav-top-link" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; Home</a>
+        </div>
       </div>
     </div>
   </div>
@@ -616,10 +626,11 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
       <details class="spec-panel">
         <summary>
           <span><span class="spec-panel-title">At a Glance</span><span class="spec-panel-teaser">4 Bed &middot; 1.75 Bath &middot; 2,720 sq ft</span></span>
-          <span class="spec-panel-icon">&#9662;</span>
+          <span class="spec-panel-price">$1,350,000</span>
+          <span class="spec-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
         </summary>
         <div class="spec-list">
-          <div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18v-5a2 2 0 012-2h5a2 2 0 012 2M13 13h5a2 2 0 012 2v5M2 11V6a1 1 0 011-1h3a1 1 0 011 1v2M2 18h20"/></svg></span><div><span class="k">BEDROOMS</span>4</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v2a5 5 0 01-5 5H9a5 5 0 01-5-5v-2zM3 19h18M6 12V7a2 2 0 013-1.7"/></svg></span><div><span class="k">BATHROOMS</span>1.75</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v3M11 9v3M15 9v3M19 9v3"/></svg></span><div><span class="k">LIVING AREA</span>2,720 sq ft</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6z"/><path d="M9 4v14M15 6v14"/></svg></span><div><span class="k">LOT SIZE</span>4,550 sq ft</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 4v5h-5"/></svg></span><div><span class="k">YEAR RENOVATED</span>1984</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><span class="k">YEAR BUILT</span>1909</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span><div><span class="k">STYLE</span>Craftsman, 1.5 story w/ basement</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19l6-10 4 6 3-5 5 9H3z"/></svg></span><div><span class="k">VIEWS</span>City, Mountain, Territorial</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3-1 4-1 7a3 3 0 006 0c0-1-1-2-1-2 2 1 3 3 3 5a6 6 0 01-12 0c0-4 3-5 5-10z"/></svg></span><div><span class="k">FIREPLACES</span>2</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a2 2 0 012 2v9.5a4 4 0 11-4 0V5a2 2 0 012-2z"/><circle cx="12" cy="17" r="1.5"/></svg></span><div><span class="k">HEATING</span>Forced air, natural gas</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><div><span class="k">FOUNDATION</span>Poured concrete</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></span><div><span class="k">EXTERIOR</span>Stone &amp; wood shingle</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 002 2h1a2 2 0 002-2M5 17v-4l2-4h10l2 4v4M17 17a2 2 0 002 2h1a2 2 0 002-2"/><circle cx="7.5" cy="17" r="1.2"/><circle cx="16.5" cy="17" r="1.2"/></svg></span><div><span class="k">GARAGE</span>Two-car, attached, plus dedicated shop</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3L4 21M15 3l5 18M12 6v3M12 12v3M12 18v3"/></svg></span><div><span class="k">DRIVEWAY</span>Long, secluded, private</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><span class="k">NEIGHBORHOOD</span>Roosevelt, Seattle 98115</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 10h16M10 4v16"/></svg></span><div><span class="k">SUBDIVISION</span>Wallingford's Park Add.</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7l10 8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><div><span class="k">ASKING PRICE</span>Coming Soon</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6"/></svg></span><div><span class="k">PROPERTY TAXES</span>$12,826 (2026)</div></div>
+          <div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18v-5a2 2 0 012-2h5a2 2 0 012 2M13 13h5a2 2 0 012 2v5M2 11V6a1 1 0 011-1h3a1 1 0 011 1v2M2 18h20"/></svg></span><div><span class="k">BEDROOMS</span>4</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v2a5 5 0 01-5 5H9a5 5 0 01-5-5v-2zM3 19h18M6 12V7a2 2 0 013-1.7"/></svg></span><div><span class="k">BATHROOMS</span>1.75</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v3M11 9v3M15 9v3M19 9v3"/></svg></span><div><span class="k">LIVING AREA</span>2,720 sq ft</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6z"/><path d="M9 4v14M15 6v14"/></svg></span><div><span class="k">LOT SIZE</span>4,550 sq ft</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 4v5h-5"/></svg></span><div><span class="k">YEAR RENOVATED</span>1984</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><span class="k">YEAR BUILT</span>1909</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span><div><span class="k">STYLE</span>Craftsman, 1.5 story w/ basement</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19l6-10 4 6 3-5 5 9H3z"/></svg></span><div><span class="k">VIEWS</span>City, Mountain, Territorial</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3-1 4-1 7a3 3 0 006 0c0-1-1-2-1-2 2 1 3 3 3 5a6 6 0 01-12 0c0-4 3-5 5-10z"/></svg></span><div><span class="k">FIREPLACES</span>2</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a2 2 0 012 2v9.5a4 4 0 11-4 0V5a2 2 0 012-2z"/><circle cx="12" cy="17" r="1.5"/></svg></span><div><span class="k">HEATING</span>Forced air, natural gas</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><div><span class="k">FOUNDATION</span>Poured concrete</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></span><div><span class="k">EXTERIOR</span>Stone &amp; wood shingle</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 002 2h1a2 2 0 002-2M5 17v-4l2-4h10l2 4v4M17 17a2 2 0 002 2h1a2 2 0 002-2"/><circle cx="7.5" cy="17" r="1.2"/><circle cx="16.5" cy="17" r="1.2"/></svg></span><div><span class="k">GARAGE</span>Two-car, attached, plus dedicated shop</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3L4 21M15 3l5 18M12 6v3M12 12v3M12 18v3"/></svg></span><div><span class="k">DRIVEWAY</span>Long, secluded, private</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><span class="k">NEIGHBORHOOD</span>Roosevelt, Seattle 98115</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 10h16M10 4v16"/></svg></span><div><span class="k">SUBDIVISION</span>Wallingford's Park Add.</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7l10 8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><div><span class="k">LISTING PRICE</span>$1,350,000</div></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6"/></svg></span><div><span class="k">PROPERTY TAXES</span>$12,826 (2026)</div></div>
         </div>
       </details>
     </div>
@@ -765,13 +776,8 @@ footer.site-footer .powered-by img { height: 22px; width: auto; display: block; 
   <div class="wrap">
     <div class="kicker">Important Dates</div>
     <h2>Listing Updates</h2>
-    <p class="lede">Key dates for 825 NE 75th St as this listing moves from the MLS debut through open house weekend.</p>
+    <p class="lede">Open house dates for 825 NE 75th St.</p>
     <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-date">SEP 10, 2026</div>
-        <h4>Listed on the MLS <span class="tl-countdown" id="mls-countdown"></span></h4>
-        <p>825 NE 75th St officially hits the Northwest MLS and public listing sites.</p>
-      </div>
       <div class="tl-item">
         <div class="tl-date">FRI SEP 11 - SUN SEP 13, 2026</div>
         <h4>Open Houses</h4>
@@ -1199,32 +1205,6 @@ function shareListing() {
     window.prompt('Copy this link:', shareData.url);
   }
 }
-
-// --- MLS listing countdown (live, days + hours) ---
-(function() {
-  var el = document.getElementById('mls-countdown');
-  if (!el) return;
-  var target = new Date('2026-09-10T00:00:00');
-  function tick() {
-    var diffMs = target - new Date();
-    if (diffMs <= 0) {
-      el.textContent = 'today';
-      clearInterval(timer);
-      return;
-    }
-    var days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var hourWord = hours === 1 ? 'hour' : 'hours';
-    if (days >= 1) {
-      var dayWord = days === 1 ? 'day' : 'days';
-      el.textContent = days + ' ' + dayWord + ' ' + hours + ' ' + hourWord + ' away';
-    } else {
-      el.textContent = hours + ' ' + hourWord + ' away';
-    }
-  }
-  tick();
-  var timer = setInterval(tick, 60000);
-})();
 
 // back-to-top visibility
 (function() {
